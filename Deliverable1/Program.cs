@@ -8,36 +8,45 @@ namespace Deliverable1
         {
             decimal milhipValue = 3.5m;
             decimal memesValue = 5.0m;
-            decimal correctUnit = 0;
+            string correctUnit = "";
+            decimal tempval;
             string userPrompt;
 
-            Console.Write("(Imperial, Milhip, Foot, Memes) \n" +
-                "Enter a measurement type: ");
-            string userInputMsrmt = Console.ReadLine();
-            
-            Console.Write("Enter an amount: ");
-            double userInputAmnt = Convert.ToDouble(Console.ReadLine());
+            do
+            {
+                Console.Write("(Imperial, Milhip, Foot, Memes) \n" +
+        "Enter a measurement type: ");
+                string userInputMsrmt = Console.ReadLine();
 
-            if (userInputMsrmt.ToLower() == "imperial")
-            {
-                correctUnit = milhipValue * Convert.ToDecimal(userInputAmnt);
-            }
-            else if (userInputMsrmt.ToLower() == "milhip")
-            {
-                correctUnit = milhipValue / Convert.ToDecimal(userInputAmnt);
-            }
-            else if (userInputMsrmt.ToLower() == "foot")
-            {
-                correctUnit = memesValue * Convert.ToDecimal(userInputAmnt);
-            }
-            else if (userInputMsrmt.ToLower() == "memes")
-            {
-                correctUnit = memesValue / Convert.ToDecimal(userInputAmnt);
-            }
+                Console.Write("Enter an amount: ");
+                double userInputAmnt = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine($"If input is: { userInputAmnt }, output is { correctUnit } { userInputMsrmt }" );
+                if (userInputMsrmt.ToLower() == "imperial")
+                {
+                    tempval = milhipValue * Convert.ToDecimal(userInputAmnt);
+                    correctUnit = $"{Convert.ToString(tempval)} Milhip";
+                }
+                else if (userInputMsrmt.ToLower() == "milhip")
+                {
+                    tempval = milhipValue / Convert.ToDecimal(userInputAmnt);
+                    correctUnit = $"{Convert.ToString(tempval)} imperial";
+                }
+                else if (userInputMsrmt.ToLower() == "foot")
+                {
+                    tempval = memesValue * Convert.ToDecimal(userInputAmnt);
+                    correctUnit = $"{Convert.ToString(tempval)} memes";
+                }
+                else if (userInputMsrmt.ToLower() == "memes")
+                {
+                    tempval = memesValue / Convert.ToDecimal(userInputAmnt);
+                    correctUnit = $"{Convert.ToString(tempval)} foot";
+                }
+                Console.WriteLine($"If input is: { userInputAmnt }, output is { correctUnit }.");
 
-            Console.ReadLine();
+                Console.Write("Do you wish to do another calculation? ");
+                userPrompt = Console.ReadLine();
+
+            } while (userPrompt.ToLower() == "yes"); // TESTING INTEGRATION NOW!
         }
     }
 }

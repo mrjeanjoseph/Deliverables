@@ -10,3 +10,4 @@ C:\Users\Computer\Google Drive\2. Think_Growths\Continuing Ed\SchoolYear2021\Gra
 C:\Users\Computer\Google Drive\2. Think_Growths\Continuing Ed\SchoolYear2021\GrandCircus BootCamp\UnitConversion\Deliverable1\obj\Debug\netcoreapp3.1\Deliverable1.dll
 C:\Users\Computer\Google Drive\2. Think_Growths\Continuing Ed\SchoolYear2021\GrandCircus BootCamp\UnitConversion\Deliverable1\obj\Debug\netcoreapp3.1\Deliverable1.pdb
 C:\Users\Computer\Google Drive\2. Think_Growths\Continuing Ed\SchoolYear2021\GrandCircus BootCamp\UnitConversion\Deliverable1\obj\Debug\netcoreapp3.1\Deliverable1.genruntimeconfig.cache
+C:\Users\Computer\Google Drive\2. Think_Growths\Continuing Ed\SchoolYear2021\GrandCircus BootCamp\UnitConversion\Deliverable1\obj\Debug\netcoreapp3.1\Deliverable1.csprojAssemblyReference.cache
