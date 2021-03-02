@@ -6,10 +6,10 @@ namespace Deliverable1
     {
         static void Main(string[] args)
         {
-            decimal fsValue = 3.5m;
-            decimal memesValue = 5.0m;
+            decimal fsValue = 3.5m,
+            memesValue = 5.0m, tempval;
+            
             string correctUnit = "";
-            decimal tempval;
             string userPrompt;
 
             do
@@ -50,7 +50,7 @@ namespace Deliverable1
                 Console.Beep();
                 Console.Clear();
 
-            } while (userPrompt.ToLower() == "yes"); // TESTING INTEGRATION NOW!
+            } while (userPrompt.ToLower() == "yes");
         }
     }
 }
