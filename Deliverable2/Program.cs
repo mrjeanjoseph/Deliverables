@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace Deliverable2
 {
@@ -13,10 +12,10 @@ namespace Deliverable2
         }
         static void TheSolution()
         {
-            string tempUserInput;
-            int count1 = 0, count2 = 0, count3 = 3;
-            string duplicateMessage = "I’m sorry but you have already said that";
-            List<string> tempData = new List<string>(2) { "hello", "hello there", "sup", "bye" };
+            string tempUserInput,
+            duplicateMessage = "I’m sorry but you have already said that";
+            List<string> tempData = new List<string>() { "hello", "hello there", "sup", "bye" };
+            int count1 = 0, count2 = 0, count3 = 0;
 
             do
             {
@@ -37,7 +36,7 @@ namespace Deliverable2
                     }
                 }
 
-                else if (userInput == tempData[1])
+                else if (userInput == tempData[2])
                 {
                     count2++;
                     if (count2 == 1)
@@ -50,7 +49,7 @@ namespace Deliverable2
                     }
                 }
 
-                else if (userInput == tempData[2])
+                else if (userInput == tempData[1])
                 {
                     count3++;
                     if (count3 == 1)
@@ -63,7 +62,7 @@ namespace Deliverable2
                     }
                 }
 
-            } while (tempUserInput != tempData[3]);
+            } while (tempUserInput.ToLower() != tempData[3]);
 
             Console.WriteLine("Good bye!");
         }
