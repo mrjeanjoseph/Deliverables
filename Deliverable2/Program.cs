@@ -14,7 +14,7 @@ namespace Deliverable2
         static void TheSolution()
         {
             string tempUserInput;
-            int count = 0;
+            int count1 = 0, count2 = 0, count3 = 3;
             string duplicateMessage = "I’m sorry but you have already said that";
             List<string> tempData = new List<string>(2) { "hello", "hello there", "sup", "bye" };
 
@@ -24,14 +24,10 @@ namespace Deliverable2
                 tempUserInput = Console.ReadLine();
                 string userInput = tempUserInput.ToLower();
 
-
-
-
-
                 if (userInput == tempData[0])
                 {
-                    count++;
-                    if (count == 1)
+                    count1++;
+                    if (count1 == 1)
                     {
                         Console.WriteLine("\tHi good to see you.");
                     }
@@ -43,10 +39,10 @@ namespace Deliverable2
 
                 else if (userInput == tempData[1])
                 {
-                    count++;
-                    if (count == 1)
+                    count2++;
+                    if (count2 == 1)
                     {
-                        Console.WriteLine("\tI am good");                        
+                        Console.WriteLine("\tI am good");
                     }
                     else
                     {
@@ -56,13 +52,14 @@ namespace Deliverable2
 
                 else if (userInput == tempData[2])
                 {
-                    if (count >= 2)
+                    count3++;
+                    if (count3 == 1)
                     {
-                        Console.WriteLine(duplicateMessage);
+                        Console.WriteLine("\tGeneral Kenobi");
                     }
                     else
                     {
-                        Console.WriteLine("\tGeneral Kenobi");
+                        Console.WriteLine(duplicateMessage);
                     }
                 }
 
