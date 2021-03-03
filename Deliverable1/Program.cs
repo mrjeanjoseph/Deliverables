@@ -9,8 +9,8 @@ namespace Deliverable1
             decimal fsValue = 3.5m,
             memesValue = 5.0m, tempval;
             
-            string correctUnit = "";
-            string userPrompt;
+            string userPrompt, correctUnit = "";
+            
 
             do
             {
