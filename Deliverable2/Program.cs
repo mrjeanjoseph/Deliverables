@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Deliverable2
 {
@@ -6,16 +8,30 @@ namespace Deliverable2
     {
         static void Main(string[] args)
         {
-            string userInput;
-            int duplicateInput = 0;
+            TheSolution();
+            Console.ReadLine();
+        }
+        static void TheSolution()
+        {
+            string tempUserInput;
+            int count = 0;
             string duplicateMessage = "I’m sorry but you have already said that";
+            List<string> tempData = new List<string>(2) { "hello", "hello there", "sup", "bye" };
+
             do
             {
-                Console.Write("What do you want to say to the bot: ");
-                userInput = Console.ReadLine();
-                if (userInput.ToLower() == "hello")
+                Console.Write("What do you want to say to the chatbot: ");
+                tempUserInput = Console.ReadLine();
+                string userInput = tempUserInput.ToLower();
+
+
+
+
+
+                if (userInput == tempData[0])
                 {
-                    if (duplicateInput < 1)
+                    count++;
+                    if (count == 1)
                     {
                         Console.WriteLine("\tHi good to see you.");
                     }
@@ -24,18 +40,35 @@ namespace Deliverable2
                         Console.WriteLine(duplicateMessage);
                     }
                 }
-                else if (userInput.ToLower() == "sup")
+
+                else if (userInput == tempData[1])
                 {
-                    Console.WriteLine("\tI am good");
+                    count++;
+                    if (count == 1)
+                    {
+                        Console.WriteLine("\tI am good");                        
+                    }
+                    else
+                    {
+                        Console.WriteLine(duplicateMessage);
+                    }
                 }
-                else if (userInput.ToLower() == "hello there")
+
+                else if (userInput == tempData[2])
                 {
-                    Console.WriteLine("\tGeneral Kenobi");
+                    if (count >= 2)
+                    {
+                        Console.WriteLine(duplicateMessage);
+                    }
+                    else
+                    {
+                        Console.WriteLine("\tGeneral Kenobi");
+                    }
                 }
-            } while (userInput != "bye");
+
+            } while (tempUserInput != tempData[3]);
 
             Console.WriteLine("Good bye!");
-            Console.ReadLine();
         }
     }
 }
