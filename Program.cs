@@ -7,6 +7,8 @@ class Solution
 {
     static void Main(string[] args)
     {
+        // get users info and displays it.
+
         Console.WriteLine("What is your name: ");
         string name = Console.ReadLine();
 
