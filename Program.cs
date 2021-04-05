@@ -18,6 +18,7 @@ namespace ConsoleUI
             Console.WriteLine($"Area of the rectangle is: {area}");
             Console.WriteLine($"Perimeter of the rectangle is: {perimeter}");
             Console.ReadLine();
+            Console.WriteLine("Program has completed.");
         }
     }
 }
