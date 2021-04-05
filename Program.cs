@@ -12,9 +12,11 @@ namespace ConsoleUI
             Console.WriteLine("Enter the width of the rectangle");
             int width = int.Parse(Console.ReadLine());
 
-            int result = length * width;
-            Console.WriteLine($"The area of the rectangle is: {result}");
+            int area = length * width;
+            int perimeter = (2*length + 2*width) ;
 
+            Console.WriteLine($"Area of the rectangle is: {area}");
+            Console.WriteLine($"Perimeter of the rectangle is: {perimeter}");
             Console.ReadLine();
         }
     }
