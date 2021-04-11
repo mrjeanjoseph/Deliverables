@@ -28,6 +28,7 @@ namespace CapstonePigLatin
                 while (true)
                 {
                     string userinput2 = Console.ReadLine();
+                    Console.Clear();
                     if (userinput2.ToLower() == "y")
                     {
                         break;
@@ -119,22 +120,30 @@ namespace CapstonePigLatin
         }
         static string PromptingUser(string userPrompt)
         {
-            Console.WriteLine(userPrompt);
-            string userInput = Console.ReadLine();
-
             bool reRun = true;
+            Console.WriteLine(userPrompt);
+            string userInput = "";
             while (reRun)
             {
-                if (userPrompt != string.Empty)
+                userInput = Console.ReadLine();
+                if (userInput == "")
                 {
-                    break;
+                    Console.WriteLine($"You did not enter anything. \nPlease enter a word or a phrase");
+                    reRun = true;
                 }
                 else
                 {
-                    Console.WriteLine($"You did not enter anything. \nPlease {userPrompt}");
+                    break;
                 }
             }
             return userInput.Trim().ToString();
         }
+
+        static void testOne()
+        {
+            string myWord = "Hello";
+            Console.WriteLine(myWord.Substring(0));
+        }
+
     }
 }
