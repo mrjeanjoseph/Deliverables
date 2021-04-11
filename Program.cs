@@ -9,10 +9,9 @@ namespace CapstonePigLatin
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the 'Pig Latin Translator!' ");
-            MultiWordsLoop();
+            FinalTranslation();
         }
-
-        static void MultiWordsLoop()
+        static void FinalTranslation()
         {
             bool reRunProgram = true; ;
             while (reRunProgram)
@@ -40,14 +39,14 @@ namespace CapstonePigLatin
                     }
                     else
                     {
-                        Console.WriteLine("Invalid Entry. Please enter y/n:");
+                        Console.WriteLine("You did not enter anything.\nPlease enter y/n:");
                     }
                 }
             }
         }
-        static string TranslateSingleWords(string str) // This works perfect
+        static string TranslateSingleWords(string str)
         {
-            string atPosOne = str.Substring(0, 1); // check of empty string - Error here when empty.
+            string atPosOne = str.Substring(0, 1);
 
             if (str == "hello@grandcircus.co")
             {
@@ -59,12 +58,12 @@ namespace CapstonePigLatin
                 return str;
             }
 
-            else if (IsAVowel(atPosOne))
+            else if (FirstVowelCheck(atPosOne))
             {
                 return $"{str}way";
             }
 
-            else if (IsAVowel(atPosOne) == false) // I'll be back baby
+            else if (FirstVowelCheck(atPosOne) == false) //Checking the first string
             {
                 string tempV1 = str.Substring(1);
                 string tempV2 = str.Substring(0, 1);
@@ -74,8 +73,8 @@ namespace CapstonePigLatin
             else
             {
                 string atPosTwo = str.Substring(0, 2);
-                if (IsAVowel(atPosOne) == false && IsAVowel(atPosTwo) == false) // I'll be back baby
-                {
+                if (FirstVowelCheck(atPosOne) == false && FirstVowelCheck(atPosTwo) == false)
+                {  //Checking the second position withing the string
                     string tempV1 = str.Substring(2);
                     string tempV2 = str.Substring(0, 2);
                     return $"{tempV1}{tempV2}ay";
@@ -86,8 +85,8 @@ namespace CapstonePigLatin
                 }
             }
         }
-        static bool IsAVowel(string words) // This works perfect 1
-        {
+        static bool FirstVowelCheck(string words)
+        { //Could have used countains method but wanted to write my own 
             string w = words.Trim().ToLower();
             if (w.StartsWith("a"))
             {
@@ -116,11 +115,11 @@ namespace CapstonePigLatin
         }
         static bool IsNum(string num)
         {
-            return int.TryParse(num, out _);
+            return int.TryParse(num, out _); // Returns true if is a number
         }
         static string PromptingUser(string userPrompt)
         {
-            bool reRun = true;
+            bool reRun = true; // Rerun the program if empty string
             Console.WriteLine(userPrompt);
             string userInput = "";
             while (reRun)
@@ -133,17 +132,10 @@ namespace CapstonePigLatin
                 }
                 else
                 {
-                    break;
+                    break; // Break away from the while loop
                 }
             }
             return userInput.Trim().ToString();
         }
-
-        static void testOne()
-        {
-            string myWord = "Hello";
-            Console.WriteLine(myWord.Substring(0));
-        }
-
     }
 }
