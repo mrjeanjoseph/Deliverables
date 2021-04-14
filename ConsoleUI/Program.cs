@@ -9,12 +9,12 @@ namespace ConsoleUI
         {
             Dictionary<string, double> listOfItems = new Dictionary<string, double>
             {
-                {"apple", 5.99},
+                {"applepie", 5.99},
                 {"banana", 1.98},
                 {"cauliflower", 1.59},
                 {"dragonfruit", 2.19},
                 {"Elderberry", 1.79},
-                {"figs", 2.09},
+                {"riped figs", 2.09},
                 {"grapefruit", 1.99},
                 {"honeydew", 3.49}
             };
@@ -79,18 +79,17 @@ namespace ConsoleUI
             }
 
             // Display receipt
+            Console.Clear();
             Console.WriteLine("Thank you for your order");
             Console.WriteLine("Here's what you got:");
             Console.WriteLine("Item\t\tPrice");
             Console.WriteLine("===========================");
             double avrPrice = 0;
-            foreach (string item in itemsPurchased)
+
+            for (int i = 0; i < itemsPurchased.Count; i++)
             {
-                foreach (double price in pricesPerItem)
-                {
-                    avrPrice += price / itemsPurchased.Count;
-                    Console.WriteLine($"{item}\t{price}"); // There's a bug here - find it. The prices are coming back incorrect.
-                }
+                avrPrice += pricesPerItem[i] / itemsPurchased.Count;
+                Console.WriteLine($"{itemsPurchased[i]}\t{pricesPerItem[i]}");
             }
 
             Console.WriteLine($"Average price per item was {avrPrice}");
