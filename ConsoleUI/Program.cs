@@ -21,52 +21,60 @@ namespace ConsoleUI
             List<string> itemsPurchased = new List<string>();
             List<double> pricesPerItem = new List<double>();
 
-            Console.WriteLine("Welcome to Guenther's Market!");
-            Console.WriteLine("Item\t\tPrice");
-            Console.WriteLine("===========================");
-
-            //Getting the menu
-            foreach (KeyValuePair<string, double> kvp in listOfItems)
+            bool runApplication = true;
+            while (runApplication)
             {
-                Console.WriteLine($"{kvp.Key}: \t{kvp.Value}");
-            }
+                Console.WriteLine("Welcome to Guenther's Market!");
 
-            Console.WriteLine("\n\nWhat item would you like to order?");
+                Console.WriteLine("Item\t\tPrice");
+                Console.WriteLine("===========================");
 
-            while (true)
-            {
-                // Initial purchasing
-                string userChoice = Console.ReadLine();
-                double result;
-                if (listOfItems.TryGetValue(userChoice, out result))
+                //Getting the menu
+                foreach (KeyValuePair<string, double> kvp in listOfItems)
                 {
-                    itemsPurchased.Add(userChoice);
-                    pricesPerItem.Add(result);
-                    Console.WriteLine($"Adding {userChoice} to cart at {result}");
+                    Console.WriteLine($"{kvp.Key}: \t\t{kvp.Value}");
                 }
-                else
-                {
-                    Console.WriteLine($"Sorry, we don't have {userChoice}. Please try again.");
-                }
-            }
 
-            // Check if they want to buy again
-            Console.WriteLine("Would you like to order anything else (y/n)?");
-            while (true)
-            {
-                string loopChoice = Console.ReadLine();
-                if (loopChoice == "y")
+                Console.WriteLine("\n\nWhat item would you like to order?");
+
+                do
                 {
-                    break;
-                }
-                else if (loopChoice == "n")
+                    // Initial purchasing
+                    string placeOrder = Console.ReadLine();
+                    Console.Clear();
+                    double result;
+                    if (listOfItems.TryGetValue(placeOrder, out result))
+                    {
+                        itemsPurchased.Add(placeOrder);
+                        pricesPerItem.Add(result);
+                        Console.WriteLine($"Adding {placeOrder} to cart at {result}");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Sorry, we don't have {placeOrder}. Please try again.");
+                    }
+
+                } while (true);
+
+                // Check if they want to buy again
+                Console.WriteLine("Would you like to order anything else (y/n)?");
+                while (true)
                 {
-                    //runApplication = false;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("that was not a valid choice");
+                    string loopChoice = Console.ReadLine();
+                    if (loopChoice == "y")
+                    {
+                        break;
+                    }
+                    else if (loopChoice == "n")
+                    {
+                        runApplication = false;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("that was not a valid choice");
+                    }
                 }
             }
 
@@ -75,14 +83,17 @@ namespace ConsoleUI
             Console.WriteLine("Here's what you got:");
             Console.WriteLine("Item\t\tPrice");
             Console.WriteLine("===========================");
+            double avrPrice = 0;
             foreach (string item in itemsPurchased)
             {
                 foreach (double price in pricesPerItem)
                 {
-                    Console.WriteLine($"{item}\t{price}");
+                    avrPrice += price / itemsPurchased.Count;
+                    Console.WriteLine($"{item}\t{price}"); // There's a bug here - find it. The prices are coming back incorrect.
                 }
             }
 
+            Console.WriteLine($"Average price per item was {avrPrice}");
             Console.ReadLine();
         }
     }

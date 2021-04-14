@@ -13,3 +13,4 @@ D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Lab
 D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ref\ConsoleUI.dll
 D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.pdb
 D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.genruntimeconfig.cache
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csprojAssemblyReference.cache
