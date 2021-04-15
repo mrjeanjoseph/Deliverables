@@ -23,9 +23,9 @@ namespace ConsoleUI
                 while (true)
                 {
                     string roolAgain = Console.ReadLine();
-                    Console.Clear();
                     if (roolAgain == "y")
                     {
+                        Console.Clear();
                         break;
                     }
                     else if (roolAgain == "n")
