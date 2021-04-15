@@ -6,29 +6,46 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            WelcomeMessage();
-            Random getRandNum = new Random();
-
-            while (true)
+            Console.WriteLine("Welcome to GC Casino!".ToUpper());
+            bool playAgain = true;
+            while (playAgain)
             {
                 int userRolled = GetUserValues();
-                int dice1 = getRandNum.Next(0, userRolled);
-                int dice2 = getRandNum.Next(0, userRolled);
+
+                int dice1 = RandomNumberGenerator(userRolled);
+                int dice2 = RandomNumberGenerator(userRolled);
 
                 Console.WriteLine($"you rolled a {dice1} and a {dice2} ({dice1 + dice2} Total)");
-                Console.WriteLine(DisplayingValues(dice1, dice2)); 
+                Console.WriteLine(DisplayingResultValues(dice1, dice2));
 
+                // Check if they want to buy again
+                Console.Write("Roll again? (y/n): ");
+                while (true)
+                {
+                    string roolAgain = Console.ReadLine();
+                    Console.Clear();
+                    if (roolAgain == "y")
+                    {
+                        break;
+                    }
+                    else if (roolAgain == "n")
+                    {
+                        playAgain = false;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice. Please choose y/n:");
+                    }
+                }
             }
+            Console.WriteLine("Thanks for playing!!");
         }
-
-        static string DisplayingValues(int dice1, int dice2)
+        static string DisplayingResultValues(int dice1, int dice2)
         {
             int total = dice1 + dice2;
-            
-            if (total == 2 || total == 3 || total == 12)
-            {
-                return "Craps";
-            }
+
+
             if (dice1 == 1 && dice2 == 1)
             {
                 return "Snake Eyes";
@@ -41,18 +58,26 @@ namespace ConsoleUI
             {
                 return "Box Cars";
             }
-            else if (dice1 == 7 || dice2 == 11 || dice1 == 11 || dice2 == 11)
+            else if (total == 7 || total == 11)
             {
                 return "Win";
+            }
+
+            if (total == 2 || total == 3 || total == 12)
+            {
+                return "Craps";
             }
             else
             {
                 return null;
             }
         }
-
-
-
+        static int RandomNumberGenerator(int userRolled)
+        {
+            Random getRandNum = new Random();
+            int rolls = getRandNum.Next(1, userRolled);
+            return rolls;
+        }
         static int GetUserValues()
         {
             Console.WriteLine("How many sides should each die have?");
@@ -73,7 +98,7 @@ namespace ConsoleUI
                 }
                 catch (FormatException)
                 {
-                    throw new Exception("Please enter a numerical value to proceed");
+                    Console.WriteLine("Please enter a numerical value to proceed");
                 }
                 catch (Exception error)
                 {
@@ -81,10 +106,6 @@ namespace ConsoleUI
                 }
             }
             return chosenvalues;
-        }
-        static void WelcomeMessage()
-        {
-            Console.WriteLine("Welcome to the Grand Circus Casino!" + Environment.NewLine + Environment.NewLine);
         }
     }
 }
