@@ -1,0 +1,16 @@
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\bin\Debug\net5.0\ConsoleUI.exe
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\bin\Debug\net5.0\ConsoleUI.deps.json
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\bin\Debug\net5.0\ConsoleUI.runtimeconfig.json
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\bin\Debug\net5.0\ConsoleUI.runtimeconfig.dev.json
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\bin\Debug\net5.0\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\bin\Debug\net5.0\ref\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\bin\Debug\net5.0\ConsoleUI.pdb
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csprojAssemblyReference.cache
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfoInputs.cache
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfo.cs
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csproj.CoreCompileInputs.cache
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ref\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.pdb
+D:\Source\workspace - 2021\GC BootCamp\2 - Labs\ReverseStrings\ConsoleUI\obj\Debug\net5.0\ConsoleUI.genruntimeconfig.cache
