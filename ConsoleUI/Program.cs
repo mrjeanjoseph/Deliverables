@@ -23,9 +23,34 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {
-            string userInput = GetOnlyStrings("Please enter a word you would like to reverse:");
-            Console.Write(ReverseWordsAndStrings(userInput));
-            Console.ReadLine();
+            bool runProgram = true;
+            while (runProgram)
+            {
+                string userInput = GetOnlyStrings("Enter a word/phrase to be reversed: ");
+                Console.Write(ReverseWordsAndStrings(userInput));
+
+                Console.WriteLine("\nTranslate another word? y/n");
+                while (true)
+                {
+                    userInput = Console.ReadLine().ToLower();
+
+                    if (userInput == "y")
+                    {
+                        Console.Clear();
+                        break;
+                    }
+                    else if (userInput == "n")
+                    {
+                        runProgram = false;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Input. Your choices (y/n)");
+                    }
+                }
+            }
+            Console.WriteLine("Thank you for using our program. Piece!");
         }
 
         static string ReverseWordsAndStrings(string strings) // I need to make this a return value
@@ -69,11 +94,15 @@ namespace ConsoleUI
                     userInput = Console.ReadLine();
                     if (string.IsNullOrEmpty(userInput))
                     {
-                        throw new Exception("You did not enter anything. \nPlease a word or a phrase.");
+                        throw new Exception("This field is required. \nEnter a word or a phrase.");
                     }
                     else if (specialChar.Contains(userInput))
                     {
-                        throw new Exception("Special characters like:\n" + @"#$%&'()*+,-./:;<=>?@[\]^_`{|}~!" + " are not allowed\nPlease try again");
+                        throw new Exception($"Special characters are not allowed. \nEnter a word or a phrase.");
+                    }                    
+                    else if ("0123456789".Contains(userInput))
+                    {
+                        throw new Exception("Numerical values are not allowed. \nEnter a word or a phrase.");
                     }
                     else
                     {
