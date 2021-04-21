@@ -11,14 +11,28 @@ namespace ConsoleUI
             ListOfPersonsCreated();
 
             Console.WriteLine("===========Extra Excercise2============");
-            Console.WriteLine("Enter staff name, address, school and pay (make sure to separate them by comm)");
-            string[] userInput = Console.ReadLine().Split(" ");
-            AddToPersonList(userInput);
+            Console.WriteLine("Enter staff name, address, school and pay (Separate entries by comma)");
+            //userInput = Console.ReadLine().Split(" ");
+            while (true)
+            {
+                string[] userInput;
+                try
+                {
+                    userInput = Console.ReadLine().Split(", ");
+                    AddToPersonList(userInput);
+                    break;
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("There was an error. Remember to Separate entries by commas.");
+                }
+            }
             Console.ReadLine();
         }
 
         static void ListOfPersonsCreated()
-        {            
+        {
             List<Person> coolPeople = new List<Person>()
             {
                 new Staff("Justin", "5511 staffing blvd", "Grand Circus", 350000),
@@ -28,7 +42,7 @@ namespace ConsoleUI
                 new Student("Jason", "9957 student way", "C# .NET", 2021, 10000)
             };
 
-            Console.WriteLine($"This is a list of cool people in the C#DotNet class. About { coolPeople.Count }");
+            Console.WriteLine($"A list of { coolPeople.Count } coolest people in the CG C#DotNet class.");
             foreach (Person person in coolPeople)
             {
                 Console.WriteLine(person);
