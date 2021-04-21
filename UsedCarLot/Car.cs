@@ -10,7 +10,7 @@ namespace UsedCarLot
         private string _make;
         private string _model;
         private int _year;
-        private decimal _price;
+        private double _price;
 
         //properties
         public string Make
@@ -28,14 +28,14 @@ namespace UsedCarLot
             get { return this._year; }
             set { this._year = value; }
         }
-        public decimal Price
+        public double Price
         {
             get { return this._price; }
             set { this._price = value; }
         }
 
         //no-arguments constructor
-        public Car ()
+        public Car()
         {
             this._make = "";
             this._model = "";
@@ -44,7 +44,7 @@ namespace UsedCarLot
         }
 
         //constructor
-        public Car(string make, string model, int year, decimal price)
+        public Car(string make, string model, int year,  double price)
         {
             this._make = make;
             this._model = model;
@@ -56,7 +56,7 @@ namespace UsedCarLot
         //overridden
         public override string ToString()
         {
-            return $"{this._make}\t{this._model}\t{this._year}\t ${this._price} ";
+            return $"{this._make}\t\t{this._model}\t\t{this._year}\t ${this._price} ";
         }
 
     }
