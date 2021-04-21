@@ -33,7 +33,7 @@
         //Method
         public override string ToString()
         {
-            return $"{ this._name } Adress: { this._address }";
+            return $"Name: { this._name } \nAdress: { this._address }";
         }
     }
 }

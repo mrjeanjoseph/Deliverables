@@ -41,7 +41,7 @@
         public override string ToString()
         {
             string output = base.ToString();
-            return $"{ nameof(Student) }: { output }, program: { this._program }, Year: { this._year }, Fee: { this._fee }";
+            return $"{ nameof(Student) } { output }, \nProgram: { this._program }, \nYear: { this._year }, \nFee: { this._fee }";
         }
     }
 }

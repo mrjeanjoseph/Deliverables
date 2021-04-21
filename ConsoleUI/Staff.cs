@@ -34,7 +34,7 @@
         public override string ToString()
         {
             string output = base.ToString();
-            return $"{ nameof(Staff) }: { output }, School: { this._school }, Pay: { this._pay }";
+            return $"{ nameof(Staff) } { output }, \nSchool: { this._school }, \nPay: { this._pay.ToString("C2") } (Cash money millionaire!)";
         }
     }
 }
