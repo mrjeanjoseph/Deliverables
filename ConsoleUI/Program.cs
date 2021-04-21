@@ -7,9 +7,13 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             Person person = new Person("Johnson", "5511 main street");
-            string result = person.ToString();
+            string personInfo = person.ToString();
+            Console.Write(personInfo);
 
-            Console.WriteLine(result);
+            Student student = new Student("Jason", "5988 default blvd", "Computer Science", 2021, 799.99);
+            string studentInfo = student.ToString();
+            Console.Write(studentInfo);
+
         }
     }
 

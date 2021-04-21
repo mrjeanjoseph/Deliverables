@@ -36,7 +36,5 @@
             string output = base.ToString();
             return $"{ output }, School: { this._school }, Pay: { this._pay }";
         }
-
     }
-
 }

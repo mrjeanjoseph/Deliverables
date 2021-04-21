@@ -8,17 +8,17 @@
         private double _fee;
 
         //properties
-        public string Program
+        private string Program
         {
             get { return _program; }
             set { _program = value; }
         }
-        public int Year
+        private int Year
         {
             get { return _year; }
             set { _year = value; }
         }
-        public double Fee
+        private double Fee
         {
             get { return _fee; }
             set { _fee = value; }
