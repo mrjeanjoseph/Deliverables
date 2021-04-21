@@ -6,15 +6,12 @@ namespace UsedCarLot
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Hello World!");
-
-            Console.WriteLine("Change for GitHub branch");
-            Console.WriteLine("This is another change.");
-
-            Console.WriteLine("I am some changes");
-            Console.WriteLine("Changes from kalai");
-
+            Console.WriteLine("Welcome to the Grand Circus Car Emporium");
+            Console.WriteLine();
+            Car car = new Car("Honda", "Civic", 2021, 24900);
+            Console.WriteLine(car.ToString());
+            Used used = new Used("Mazda", "Miata", 1995, 7000, 84950.5);
+            Console.WriteLine(used.ToString());
         }
     }
 }
