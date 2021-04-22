@@ -25,6 +25,8 @@ namespace UsedCarLot
             {
                 Console.WriteLine(car);
             }
+
+            Console.WriteLine("Add a car : need to work");
             
             //Car car = new Car("Honda", "Civic", 2021, 24900);
             //Console.WriteLine(car.ToString());
