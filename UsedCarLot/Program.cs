@@ -7,11 +7,13 @@ namespace UsedCarLot
     {
         static void Main(string[] args)
         {
+            JeanTestsCodesForNow(); // This is calling the method below
+
 
             Console.WriteLine("I am some changes");
             Console.WriteLine("Jean made some changes");
 
-            List<Car> cars = new List<Car>
+            List<Car> cars = new List<Car> // I moved all of this code to the "CarLot" class under ListAll cars method
             {
                 new Car("Nikolai","Model s",2017,54999.90),
                 new Car("Fourd","Escapade",2017,31999),
@@ -21,18 +23,25 @@ namespace UsedCarLot
             };
             Console.WriteLine("Welcome to the Grand Circus Car Emporium");
             Console.WriteLine();
-            foreach (Car car in cars)
+            foreach (Car car in cars) // I moved all of this code to the "CarLot" class under display method
             {
                 Console.WriteLine(car);
             }
 
             Console.WriteLine("Add a car : need to work");
-            
+
             //Car car = new Car("Honda", "Civic", 2021, 24900);
             //Console.WriteLine(car.ToString());
             //Used used = new Used("Mazda", "Miata", 1995, 7000, 84950.5);
             //Console.WriteLine(used.ToString());
-            
+
+        }
+
+        static void JeanTestsCodesForNow()
+        {
+            CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
+            Console.WriteLine(emporium.GreetingClients());
+            emporium.ListAllCars();
         }
     }
 }
