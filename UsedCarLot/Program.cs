@@ -7,11 +7,20 @@ namespace UsedCarLot
     {
         static void Main(string[] args)
         {
-            JeanTestsCodesForNow(); // This is calling the method below
+            //JeanTestsCodesForNow(); // This is calling the method below
+            CodesFromMain();
+            Console.ReadLine();
+        }
 
+        static void JeanTestsCodesForNow()
+        {
+            CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
+            Console.WriteLine(emporium.GreetingClients());
+            emporium.ListAllCars();
+        }
 
-            Console.WriteLine("I am some changes");
-            Console.WriteLine("Jean made some changes");
+        static void CodesFromMain()
+        {
 
             List<Car> cars = new List<Car> // I moved all of this code to the "CarLot" class under ListAll cars method
             {
@@ -34,15 +43,7 @@ namespace UsedCarLot
             //Console.WriteLine(car.ToString());
             //Used used = new Used("Mazda", "Miata", 1995, 7000, 84950.5);
             //Console.WriteLine(used.ToString());
-
-        }
-
-        static void JeanTestsCodesForNow()
-        {
-            CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
-            Console.WriteLine(emporium.GreetingClients());
-            emporium.ListAllCars();
-        }
+        } // Codes to be modified
     }
 }
 

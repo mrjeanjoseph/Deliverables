@@ -48,13 +48,32 @@ namespace UsedCarLot
                 new Car("Chewie","Vette",2017,44989.95),
                 new Used("Hyonda","Prior",2015,14795.50,35987.6),
                 new Used("GC","Chirpus",2013,8500,12345),
-                new Used("GC","Witherell",2016,14450,3500.3)
+                new Used("GC","Witherell",2016,14450,3500.3),                
             };
 
             this._inventory = cars;
         }
 
+        private void AddNewCars(List<Car> carInfo)
+        {
+            // Add a car to the list of Car via user input
+            Car car = new Car(carInfo, carInfo, carInfo, carInfo);
+        }
 
+        public void AddACar(string make, string model, int year, double price)
+        {
+            Car car = new Car();
+            AddACar(make, model, year, price);
+
+
+
+            Car car = new Car(make, model, year, price);
+            AddACar("Honda", "Civic", 2021, 24900);
+            foreach (Car newcar in cars)
+            {
+                Console.WriteLine(newcar);
+            }
+        }
 
         public void ListAllCars()
         {
@@ -63,7 +82,7 @@ namespace UsedCarLot
             {
                 count++;
                 //Console.WriteLine($"{cars}");
-                string formattedList = string.Format("{0, -15} {1, -16} {2, -16} {3, -16}", cars.Make, cars.Model, cars.Year, cars.Price, cars);
+                string formattedList = string.Format("{0, -15} {1, -16} {2, -16} {3, -16}", cars.Make, cars.Model, cars.Year, cars.Price, cars.ToString());
                 Console.WriteLine($"{count}: {formattedList}");
 
             }

@@ -36,5 +36,4 @@ namespace UsedCarLot
             return $"{result} (Used) {this._mileage} miles";
         }
     }
-
 }
