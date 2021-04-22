@@ -7,6 +7,10 @@ namespace UsedCarLot
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("I am some changes");
+            Console.WriteLine("Jean made some changes");
+
             List<Car> cars = new List<Car>
             {
                 new Car("Nikolai","Model s",2017,54999.90),
