@@ -31,7 +31,7 @@ namespace UsedCarLot
         public CarLot(string name)
         {
             this._name = name;
-            Restock();
+            CarDataCollection();
         }
 
         public string GreetingClients()
@@ -39,7 +39,7 @@ namespace UsedCarLot
             return $"Welcome to { this._name.ToUpper() }";
         }
 
-        private void Restock()
+        private void CarDataCollection()
         {
             List<Car> cars = new List<Car>
             {
@@ -48,30 +48,20 @@ namespace UsedCarLot
                 new Car("Chewie","Vette",2017,44989.95),
                 new Used("Hyonda","Prior",2015,14795.50,35987.6),
                 new Used("GC","Chirpus",2013,8500,12345),
-                new Used("GC","Witherell",2016,14450,3500.3),                
+                new Used("GC","Witherell",2016,14450,3500.3),
+                
             };
-
             this._inventory = cars;
         }
 
-        private void AddNewCars(List<Car> carInfo)
+        public void AddNewCars(string make, string model, int year, double price)
         {
-            // Add a car to the list of Car via user input
-            Car car = new Car(carInfo, carInfo, carInfo, carInfo);
-        }
-
-        public void AddACar(string make, string model, int year, double price)
-        {
-            Car car = new Car();
-            AddACar(make, model, year, price);
-
-
-
             Car car = new Car(make, model, year, price);
-            AddACar("Honda", "Civic", 2021, 24900);
-            foreach (Car newcar in cars)
+            List<Car> carList = new List<Car>();
+            carList.Add(car);
+            foreach (Car addANewCar in carList)
             {
-                Console.WriteLine(newcar);
+                Console.WriteLine(addANewCar);
             }
         }
 

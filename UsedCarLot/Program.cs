@@ -7,15 +7,40 @@ namespace UsedCarLot
     {
         static void Main(string[] args)
         {
-            //JeanTestsCodesForNow(); // This is calling the method below
-            CodesFromMain();
+            JeanTestsCodesForNow(); // This is calling the method below
+            //CodesFromMain();
             Console.ReadLine();
+
+            CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
+            Console.WriteLine("Add a new car?: choose (new/used)");
+            Used usedCar = new Used();
+            usedCar.Make = Console.ReadLine();
         }
 
         static void JeanTestsCodesForNow()
         {
             CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
             Console.WriteLine(emporium.GreetingClients());
+           // emporium.ListAllCars();
+
+            Console.WriteLine("Add a new car?: choose (new/used)");
+            Car newCar = new Car();
+            string userInput = Console.ReadLine();
+            if (userInput == "new")
+            {
+                Console.WriteLine("Make of the car:");
+                newCar.Make = Console.ReadLine();
+                Console.WriteLine("Model of the car:");
+                newCar.Model = Console.ReadLine();
+                Console.WriteLine("Year of the car:");
+                newCar.Year = int.Parse(Console.ReadLine()); 
+                Console.WriteLine("Price of the car:");
+                newCar.Price = double.Parse(Console.ReadLine());
+
+                emporium.AddNewCars(newCar.Make, newCar.Model, newCar.Year, newCar.Price); // This will store it in the data collection
+            }
+            // Console.Clear();
+            Console.WriteLine("Your car have been added");
             emporium.ListAllCars();
         }
 
