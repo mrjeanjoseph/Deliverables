@@ -7,6 +7,7 @@ namespace UsedCarLot
     {
         static void Main(string[] args)
         {
+            Console.Beep(200, 500);
             JeanTestsCodesForNow(); // This is calling the method below
             //CodesFromMain();
             Console.ReadLine();
@@ -15,29 +16,67 @@ namespace UsedCarLot
             Console.WriteLine("Add a new car?: choose (new/used)");
             Used usedCar = new Used();
             usedCar.Make = Console.ReadLine();
+
+        }
+
+        static void Choice(int userInput) 
+        {
+            List<Car> car = new List<Car>();
+            if (userInput > car.Count)
+            {
+                Console.WriteLine($"Number entered is invalid");
+            }
+            else if (userInput == car.Count -1)
+            {
+                Console.WriteLine("Goodbye");
+            }
+            else if (userInput == 5)
+            {
+                Console.WriteLine("I am here");
+            }
         }
 
         static void JeanTestsCodesForNow()
         {
             CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
             Console.WriteLine(emporium.GreetingClients());
-           // emporium.ListAllCars();
+            emporium.ListAllCars();
+            //quick note
+            List<CarLot> car = new List<CarLot>();
+            Console.WriteLine(car.Count);
 
-            Console.WriteLine("Add a new car?: choose (new/used)");
+            Console.WriteLine("Add a new car: choose a ");
             Car newCar = new Car();
-            string userInput = Console.ReadLine();
-            if (userInput == "new")
+            Used usedCar = new Used();
+            int userInput = int.Parse(Console.ReadLine());
+            Choice(userInput);
+            if (userInput == 7)
             {
                 Console.WriteLine("Make of the car:");
                 newCar.Make = Console.ReadLine();
                 Console.WriteLine("Model of the car:");
                 newCar.Model = Console.ReadLine();
                 Console.WriteLine("Year of the car:");
-                newCar.Year = int.Parse(Console.ReadLine()); 
+                newCar.Year = int.Parse(Console.ReadLine());
                 Console.WriteLine("Price of the car:");
-                newCar.Price = double.Parse(Console.ReadLine());
+                newCar.Price = decimal.Parse(Console.ReadLine());
 
-                emporium.AddNewCars(newCar.Make, newCar.Model, newCar.Year, newCar.Price); // This will store it in the data collection
+                emporium.AddNewCars(newCar); // This will store it in the data collection
+            }
+            else if (userInput == 7)
+            {
+                Console.WriteLine("Make of the car:");
+                usedCar.Make = Console.ReadLine();
+                Console.WriteLine("Model of the car:");
+                usedCar.Model = Console.ReadLine();
+                Console.WriteLine("Year of the car:");
+                usedCar.Year = int.Parse(Console.ReadLine());
+                Console.WriteLine("Price of the car:");
+                usedCar.Price = decimal.Parse(Console.ReadLine());
+                Console.WriteLine("Milleage of the car:");
+                usedCar.Mileage = double.Parse(Console.ReadLine());
+
+                emporium.AddNewCars(usedCar); // This will store it in the data collection
             }
             // Console.Clear();
             Console.WriteLine("Your car have been added");
@@ -49,7 +88,7 @@ namespace UsedCarLot
 
             List<Car> cars = new List<Car> // I moved all of this code to the "CarLot" class under ListAll cars method
             {
-                new Car("Nikolai","Model s",2017,54999.90),
+                new Car("Nikolai","Model s",2017,54999.90m),
                 new Car("Fourd","Escapade",2017,31999),
                 new Car("Hyonda","Prior",2015,14795),
                 new Used("GC","Chirpus",2013,8500,12345),

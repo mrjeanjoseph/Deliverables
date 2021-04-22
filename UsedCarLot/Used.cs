@@ -23,7 +23,7 @@ namespace UsedCarLot
         }
 
         //constructor
-        public Used(string make, string model, int year, double price, double mileage) : base (make, model, year, price)
+        public Used(string make, string model, int year, decimal price, double mileage) : base (make, model, year, price)
         {
             this._mileage = mileage;
         }

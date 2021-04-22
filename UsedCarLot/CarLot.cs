@@ -43,10 +43,10 @@ namespace UsedCarLot
         {
             List<Car> cars = new List<Car>
             {
-                new Car("Nikolai","Model S",2017,54999.90),
-                new Car("Fourd","Escapade",2017,31999.90),
-                new Car("Chewie","Vette",2017,44989.95),
-                new Used("Hyonda","Prior",2015,14795.50,35987.6),
+                new Car("Nikolai","Model S",2017,54999.90m),
+                new Car("Fourd","Escapade",2017,31999.90m),
+                new Car("Chewie","Vette",2017,44989.95m),
+                new Used("Hyonda","Prior",2015,14795.50m,35987.6),
                 new Used("GC","Chirpus",2013,8500,12345),
                 new Used("GC","Witherell",2016,14450,3500.3),
                 
@@ -54,15 +54,14 @@ namespace UsedCarLot
             this._inventory = cars;
         }
 
-        public void AddNewCars(string make, string model, int year, double price)
+        public void AddNewCars(Car car)
         {
-            Car car = new Car(make, model, year, price);
             List<Car> carList = new List<Car>();
-            carList.Add(car);
-            foreach (Car addANewCar in carList)
-            {
-                Console.WriteLine(addANewCar);
-            }
+            this._inventory.Add(car);
+            //foreach (Car addANewCar in carList)
+            //{
+            //    Console.WriteLine(addANewCar);
+            //}
         }
 
         public void ListAllCars()
