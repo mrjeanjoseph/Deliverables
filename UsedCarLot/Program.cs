@@ -54,7 +54,7 @@ namespace UsedCarLot
 
 
 
-                        if (userInput == emporium.Inventory.Count + 1)
+                        if (input == emporium.Inventory.Count + 1)
                         {
                             Console.WriteLine("Do you want to add a new car or used car?");
                             string choice = Console.ReadLine().Trim().ToLower();
@@ -98,7 +98,7 @@ namespace UsedCarLot
 
 
 
-                        else if (userInput == emporium.Inventory.Count + 2)
+                        else if (input == emporium.Inventory.Count + 2)
                         {
                             Console.WriteLine("Good bye");
                             Environment.Exit(0);
@@ -106,13 +106,13 @@ namespace UsedCarLot
                         }
                         else
                         {
-                            emporium.ViewCar(userInput);
+                            emporium.ViewCar(input);
                             Console.WriteLine("Do you want to buy this car?y/n");
                             string inputChoice = Console.ReadLine();
                             if (inputChoice == "y")
                             {
                                 Console.WriteLine("Excellent!  Our finance department will be in touch shortly.");
-                                emporium.RemoveCar(userInput);
+                                emporium.RemoveCar(input);
                                 emporium.ListAllCars();
                             }
                         }
