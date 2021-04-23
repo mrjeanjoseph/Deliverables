@@ -69,7 +69,7 @@ namespace UsedCarLot
         {
             
             
-            this._inventory.RemoveAt(userInput-1);        
+            this._inventory.RemoveAt(userInput-1);     
 
            
             
@@ -82,10 +82,7 @@ namespace UsedCarLot
             foreach (Car cars in this._inventory)
             {
                 count++;
-                Console.WriteLine($"{count}. {cars}");//cars.Make, cars.Model, cars.Year, cars.Price,
-                //string formattedList = string.Format("{0, -15} {1, -16} {2, -16} {3, -16}{4,-16}",  cars.ToString());
-                //Console.WriteLine($"{count}: {formattedList}");
-                
+                Console.WriteLine($"{count}. {cars}");               
 
             }
             Console.WriteLine($"{count+1}.Add a car");
