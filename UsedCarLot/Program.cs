@@ -8,129 +8,125 @@ namespace UsedCarLot
         static void Main(string[] args)
         {
             Console.Beep(200, 500);
-            JeanTestsCodesForNow(); // This is calling the method below
-            //CodesFromMain();
-            //Console.ReadLine();
+            RunProgram();         
 
-            CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
-            //Console.WriteLine("Add a new car?: choose (new/used)");
-            //Used usedCar = new Used();
-            //usedCar.Make = Console.ReadLine();
-
+            
+            
         }
 
-        //static void Choice(int userInput) 
-        //{
-        //    List<Car> car = new List<Car>();
-        //    if (userInput > car.Count)
-        //    {
-        //        Console.WriteLine($"Number entered is invalid");
-        //    }
-        //    else if (userInput == car.Count -1)
-        //    {
-        //        Console.WriteLine("Goodbye");
-        //    }
-        //    else if (userInput == 5)
-        //    {
-        //        Console.WriteLine("I am here");
-        //    }
-        //}
-
-        static void JeanTestsCodesForNow()
+        
+        static void RunProgram()
         {
             CarLot emporium = new CarLot("Grant Chirpus’ Used Car Emporium");
             Console.WriteLine(emporium.GreetingClients());
-            emporium.ListAllCars();           
-
-            Console.WriteLine("Enter your choice");
-            Car newCar = new Car();
-            Used usedCar = new Used();
-            int userInput = int.Parse(Console.ReadLine());
-            
-            if (userInput == emporium.Inventory.Count +1)
+            emporium.ListAllCars();
+            bool runProgram = true;
+            int userInput =0;
+            while (runProgram)
             {
-                Console.WriteLine("Do you want to add a new car or used car?");
-                string choice = Console.ReadLine();
-                if(choice == "new")
+                Console.WriteLine("Enter your choice");
+                Car newCar = new Car();
+                Used usedCar = new Used();
+                try
                 {
-                    Console.WriteLine("Make of the car:");
-                    newCar.Make = Console.ReadLine();
-                    Console.WriteLine("Model of the car:");
-                    newCar.Model = Console.ReadLine();
-                    Console.WriteLine("Year of the car:");
-                    newCar.Year = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Price of the car:");
-                    newCar.Price = decimal.Parse(Console.ReadLine());
-                    Console.WriteLine("Your car have been added");
-                    emporium.AddNewCars(newCar); // This will store it in the data collection
-                    emporium.ListAllCars();
+                    userInput = int.Parse(Console.ReadLine());
+                    if(userInput <= 0 || userInput > emporium.Inventory.Count+ 2 )
+                    {
+                        Console.WriteLine("Not less than 0 and more than the list");
+                        continue;
+                    }
 
                 }
-
-                else if(choice == "used")
+                catch(Exception)
                 {
-                    Console.WriteLine("Make of the car:");
-                    usedCar.Make = Console.ReadLine();
-                    Console.WriteLine("Model of the car:");
-                    usedCar.Model = Console.ReadLine();
-                    Console.WriteLine("Year of the car:");
-                    usedCar.Year = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Price of the car:");
-                    usedCar.Price = decimal.Parse(Console.ReadLine());
-                    Console.WriteLine("Milleage of the car:");
-                    usedCar.Mileage = double.Parse(Console.ReadLine());
-
-                    emporium.AddNewCars(usedCar); // This will store it in the data collection
-                    emporium.ListAllCars();
+                    Console.WriteLine("not a number");
+                    continue;
                 }
-            }
-            
-            // Console.Clear();
-            //Console.WriteLine("Your car have been added");
-            else if(userInput == emporium.Inventory.Count + 2)
-            {
-                Console.WriteLine("Good bye");
+
+                if (userInput == emporium.Inventory.Count + 1)
+                {
+                    Console.WriteLine("Do you want to add a new car or used car?");
+                    string choice = Console.ReadLine().Trim().ToLower();
+                    if (choice == "new")
+                    {
+                        Console.WriteLine("Make of the car:");
+                        newCar.Make = Console.ReadLine();
+                        Console.WriteLine("Model of the car:");
+                        newCar.Model = Console.ReadLine();
+                        Console.WriteLine("Year of the car:");
+                        newCar.Year = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Price of the car:");
+                        newCar.Price = decimal.Parse(Console.ReadLine());
+                        Console.WriteLine("Your car has been added");
+                        emporium.AddNewCars(newCar); // This will store it in the data collection
+                        emporium.ListAllCars();
+
+                    }
+
+                    else if (choice == "used")
+                    {
+                        Console.WriteLine("Make of the car:");
+                        usedCar.Make = Console.ReadLine();
+                        Console.WriteLine("Model of the car:");
+                        usedCar.Model = Console.ReadLine();
+                        Console.WriteLine("Year of the car:");
+                        usedCar.Year = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Price of the car:");
+                        usedCar.Price = decimal.Parse(Console.ReadLine());
+                        Console.WriteLine("Milleage of the car:");
+                        usedCar.Mileage = double.Parse(Console.ReadLine());
+
+                        emporium.AddNewCars(usedCar); // This will store it in the data collection
+                        emporium.ListAllCars();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your choice is invalid");
+                    }
+                }
+
+                
+               
+                else if (userInput == emporium.Inventory.Count + 2)
+                {
+                    Console.WriteLine("Good bye");
+                    Environment.Exit(0);
+
+                }
+                else
+                {
+                    emporium.ViewCar(userInput);
+                    Console.WriteLine("Do you want to buy this car?y/n");
+                    string inputChoice = Console.ReadLine();
+                    if (inputChoice == "y")
+                    {
+                        Console.WriteLine("Excellent!  Our finance department will be in touch shortly.");
+                        emporium.RemoveCar(userInput);
+                        emporium.ListAllCars();
+                    }
+                }
+                while (true)
+                {
+                    Console.WriteLine("Do you want to continue?y/n");
+                    string choice = Console.ReadLine().ToLower().Trim();
+                    if (choice == "y")
+                    {
+                        Console.Clear();
+                        emporium.ListAllCars();
+                        break;
+                    }
+                    else if(choice == "n")
+                    {
+                        runProgram = false;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input.Please type y/n");
+                    }
+                }
                 
             }
-            else
-            {
-                emporium.ViewCar(userInput);
-                Console.WriteLine("Do you want to buy this car?y/n");
-                string inputChoice = Console.ReadLine();
-                if (inputChoice == "y")
-                {
-                    emporium.RemoveCar(userInput);
-                    emporium.ListAllCars();
-                }
-            }
-                
-            //}
-
-            //static void CodesFromMain()
-            //{
-
-            //    List<Car> cars = new List<Car> // I moved all of this code to the "CarLot" class under ListAll cars method
-            //    {
-            //        new Car("Nikolai","Model s",2017,54999.90m),
-            //        new Car("Fourd","Escapade",2017,31999),
-            //        new Car("Hyonda","Prior",2015,14795),
-            //        new Used("GC","Chirpus",2013,8500,12345),
-            //        new Used("GC","Witherell",2016,14450,3500.3)
-            //    };
-            //    Console.WriteLine("Welcome to the Grand Circus Car Emporium");
-            //    Console.WriteLine();
-            //    foreach (Car car in cars) // I moved all of this code to the "CarLot" class under display method
-            //    {
-            //        Console.WriteLine(car);
-            //    }
-
-            //    Console.WriteLine("Add a car : need to work");
-
-            //    //Car car = new Car("Honda", "Civic", 2021, 24900);
-            //    //Console.WriteLine(car.ToString());
-            //    //Used used = new Used("Mazda", "Miata", 1995, 7000, 84950.5);
-            //    //Console.WriteLine(used.ToString());
-            //} // Codes to be modified
         }
     }
 }

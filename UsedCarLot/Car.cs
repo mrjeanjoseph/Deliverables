@@ -56,7 +56,9 @@ namespace UsedCarLot
         //overridden
         public override string ToString()
         {
-            return $"{this._make}\t\t{this._model}\t\t{this._year}\t ${this._price} ";
+            string formattedList = string.Format("{0, -15} {1, -16} {2, -16} {3, -16}", this._make, this._model, this._year, this._price) ;
+            //return $"{this._make}\t\t{this._model}\t\t{this._year}\t ${this._price} ";
+            return formattedList;
         }
 
     }
