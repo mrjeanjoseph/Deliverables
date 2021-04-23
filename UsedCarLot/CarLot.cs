@@ -10,7 +10,7 @@ namespace UsedCarLot
         private List<Car> _inventory;
 
         //properties
-        public List<Car> MyProperty
+        public List<Car> Inventory
         {
             get { return this._inventory; }
             set { this._inventory = value; }
@@ -53,15 +53,27 @@ namespace UsedCarLot
             };
             this._inventory = cars;
         }
+        public void ViewCar(int userInput)
+        {
+            Console.WriteLine(Inventory[userInput - 1]);
+        }
 
         public void AddNewCars(Car car)
         {
-            List<Car> carList = new List<Car>();
-            this._inventory.Add(car);
-            //foreach (Car addANewCar in carList)
-            //{
-            //    Console.WriteLine(addANewCar);
-            //}
+            
+            this._inventory.Add(car);           
+           
+        }
+
+        public void RemoveCar( int userInput)
+        {
+            
+            
+            this._inventory.RemoveAt(userInput-1);        
+
+           
+            
+
         }
 
         public void ListAllCars()
@@ -73,8 +85,11 @@ namespace UsedCarLot
                 //Console.WriteLine($"{cars}");
                 string formattedList = string.Format("{0, -15} {1, -16} {2, -16} {3, -16}", cars.Make, cars.Model, cars.Year, cars.Price, cars.ToString());
                 Console.WriteLine($"{count}: {formattedList}");
+                
 
             }
+            Console.WriteLine($"{count+1}.Add a car");
+            Console.WriteLine($"{count + 2}.Quit");
         }
     }
 }
