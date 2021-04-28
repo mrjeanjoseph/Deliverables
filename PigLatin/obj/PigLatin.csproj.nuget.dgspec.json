@@ -1,26 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tommy\\Desktop\\Refactor Lab\\PigLatin\\PigLatin.csproj": {}
+    "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\PigLatinBuggy\\PigLatin\\PigLatin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tommy\\Desktop\\Refactor Lab\\PigLatin\\PigLatin.csproj": {
+    "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\PigLatinBuggy\\PigLatin\\PigLatin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tommy\\Desktop\\Refactor Lab\\PigLatin\\PigLatin.csproj",
+        "projectUniqueName": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\PigLatinBuggy\\PigLatin\\PigLatin.csproj",
         "projectName": "PigLatin",
-        "projectPath": "C:\\Users\\Tommy\\Desktop\\Refactor Lab\\PigLatin\\PigLatin.csproj",
-        "packagesPath": "C:\\Users\\Tommy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tommy\\Desktop\\Refactor Lab\\PigLatin\\obj\\",
+        "projectPath": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\PigLatinBuggy\\PigLatin\\PigLatin.csproj",
+        "packagesPath": "C:\\Users\\Computer\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\PigLatinBuggy\\PigLatin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Computer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -59,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
