@@ -12,6 +12,7 @@ namespace PigLatin
             do
             {
                 string userInput = Translator.GetInput("Input a word or sentence to translate to pig Latin");
+                //Has been reworked to be an object instead of static methods
                 Translator translator = new Translator(userInput);
                 translator.ToString();
             } while (true);

@@ -35,8 +35,10 @@ namespace PigLatin
             return input;
         }
 
-        public static bool HasSpecialChars(string c)
+        bool HasSpecialChars(string c)
         {
+
+            
             if (c.Contains("@.-$^&!#%*)(_+=/+"))
             {
                 return true;
@@ -47,25 +49,26 @@ namespace PigLatin
             }
         }
 
-        public static string IsVowel(string vowels = "aeiou")
+        string IsVowel(string vowels = "aeiou")
         {
             return vowels;
         }
 
-        public static void ToPigLatin(string words)
+        void ToPigLatin(string words)
         {
-            HasSpecialChars(words);
+            //HasSpecialChars(words);
             List<string> output = new List<string>();
 
             //Handle going through each words
-            foreach (string eachWord in words.Split(' '))
+            foreach (string eachWord in words.Split(' ')) //Replaced the forloop for an foreach loop
             {
                 string firstLetter = eachWord.Substring(0, 1);
                 string postFix = eachWord.Substring(1, eachWord.Length - 1);
 
-                if (HasSpecialChars(words) == true)
+                if (eachWord.Contains("@"))
                 {
-                    Console.WriteLine(words);
+                   //Console.WriteLine("I am here");
+                    output.Add(eachWord);
                 }
                 else if (IsVowel().IndexOf(firstLetter) == -1)
                 {
@@ -103,6 +106,10 @@ namespace PigLatin
             //    string sub = word.Substring(vowelIndex + 1);
             //    string postFix = word.Substring(0, vowelIndex - 1);
 
+            //string postFix = word.Substring(0, vowelIndex + 1);
+
+                //string postFix = word.Substring(0, vowelIndex + 1);
+
             //    output = sub + postFix + "ay";
             //}
             //return output;
@@ -110,3 +117,4 @@ namespace PigLatin
 
     }
 }
+
