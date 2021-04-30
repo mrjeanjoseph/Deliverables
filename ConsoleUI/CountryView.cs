@@ -19,7 +19,8 @@ namespace ConsoleUI
 
         public void Display()
         {
-            Console.WriteLine($"{_displayCountry.Name }, {_displayCountry.Continent }, {string.Join(",", _displayCountry.Colors)} ");
+            Console.WriteLine(string.Format("{0, -15} {1, -20} {2, 0}", "Name", "Continet", "Colors"));
+            Console.WriteLine(string.Format("{0, -15} {1, -20} {2, 0}", this._displayCountry.Name, this._displayCountry.Continent, string.Join(", ", this._displayCountry.Colors)));
         }
     }
 

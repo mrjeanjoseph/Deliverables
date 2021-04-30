@@ -17,8 +17,7 @@ namespace ConsoleUI
         //Constructor
         public CountryListView(List<Country> countryList)
         {
-            this._countries = countryList;
-            
+            this._countries = countryList;            
         }
 
         //Methods
@@ -30,7 +29,8 @@ namespace ConsoleUI
             {
                 Console.WriteLine($"{i} {_countries[i-1].Name }");
             }
-            // 
+
+            // There are two ways of getting that list.
             //int counter = 1;
             //foreach (Country country in _countries)
             //{
