@@ -1,0 +1,13 @@
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\bin\Debug\netcoreapp3.1\JoinDataOOP.exe
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\bin\Debug\netcoreapp3.1\JoinDataOOP.deps.json
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\bin\Debug\netcoreapp3.1\JoinDataOOP.runtimeconfig.json
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\bin\Debug\netcoreapp3.1\JoinDataOOP.runtimeconfig.dev.json
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\bin\Debug\netcoreapp3.1\JoinDataOOP.dll
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\bin\Debug\netcoreapp3.1\JoinDataOOP.pdb
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\obj\Debug\netcoreapp3.1\JoinDataOOP.csprojAssemblyReference.cache
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\obj\Debug\netcoreapp3.1\JoinDataOOP.AssemblyInfoInputs.cache
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\obj\Debug\netcoreapp3.1\JoinDataOOP.AssemblyInfo.cs
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\obj\Debug\netcoreapp3.1\JoinDataOOP.csproj.CoreCompileInputs.cache
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\obj\Debug\netcoreapp3.1\JoinDataOOP.dll
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\obj\Debug\netcoreapp3.1\JoinDataOOP.pdb
+C:\Users\skala\source\repos\JoinDataOOP\JoinDataOOP\obj\Debug\netcoreapp3.1\JoinDataOOP.genruntimeconfig.cache
