@@ -22,16 +22,21 @@ namespace ConsoleUI
         }
 
         //Methods
-        public void Display(List<Country> countryList)
+        public void Display()
         {
-            Console.WriteLine("Name:\tPrice");
-            Console.WriteLine("====\t======");
+            Console.WriteLine("Country:");
 
-            foreach (Country item in countryList)
+            for (int i = 1; i <= _countries.Count; i++)
             {
-                Console.WriteLine(item);
-                // better
+                Console.WriteLine($"{i} {_countries[i-1].Name }");
             }
+            // 
+            //int counter = 1;
+            //foreach (Country country in _countries)
+            //{
+            //    Console.WriteLine($"{ counter }. {country.Name}");
+            //    counter++;
+            //}
         }
     }
 }

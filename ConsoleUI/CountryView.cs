@@ -19,7 +19,7 @@ namespace ConsoleUI
 
         public void Display()
         {
-            Console.WriteLine($"{ this._displayCountry.Name }, { this._displayCountry.Continent }, { this._displayCountry.Colors }");
+            Console.WriteLine($"{_displayCountry.Name }, {_displayCountry.Continent }, {string.Join(",", _displayCountry.Colors)} ");
         }
     }
 
