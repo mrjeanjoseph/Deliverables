@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinDataOOP", "JoinDataOOP\JoinDataOOP.csproj", "{F36180CF-05E9-4DFC-967F-C0885901CF0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoiningDataOOP", "JoinDataOOP\JoiningDataOOP.csproj", "{F36180CF-05E9-4DFC-967F-C0885901CF0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

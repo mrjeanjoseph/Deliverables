@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JoinDataOOP
+namespace JoiningDataOOP
 {
     class Order
     {
