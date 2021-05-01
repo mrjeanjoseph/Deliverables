@@ -42,8 +42,8 @@ namespace JoiningDataOOP
 
         public override string ToString()
         {
-            //decimal total = 
-            return string.Format("\t{0, -20} {1, -20} {2, 0}", this._item, this._price, this._quantity);
+            decimal total = this._price * this._quantity;
+            return string.Format("\t{0, -20} {1, -20} {2, -20} {3, 0}", this._item, this._price, this._quantity, total);
             //return string.Format("\t{0, -20} {1, -20} {2, -20} {3, 0}", this.CustomerName, this._item, this._price, this._quantity);
         }
     }
