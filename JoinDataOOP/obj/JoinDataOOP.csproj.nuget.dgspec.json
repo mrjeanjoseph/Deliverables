@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoiningDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj": {}
+    "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoinDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj": {}
   },
   "projects": {
-    "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoiningDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj": {
+    "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoinDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoiningDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj",
+        "projectUniqueName": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoinDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj",
         "projectName": "JoinDataOOP",
-        "projectPath": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoiningDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj",
+        "projectPath": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoinDataOOPLab\\JoinDataOOP\\JoinDataOOP.csproj",
         "packagesPath": "C:\\Users\\Computer\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoiningDataOOPLab\\JoinDataOOP\\obj\\",
+        "outputPath": "D:\\Source\\workspace - 2021\\GC BootCamp\\2 - Labs\\JoinDataOOPLab\\JoinDataOOP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
