@@ -12,6 +12,33 @@ namespace JoiningDataOOP
             Console.ReadLine();
         }
 
+        static void PullAReport()
+        {
+            Console.WriteLine("Choose a report: \nPress 1 for Report 1\nPress 1 for Report 2\nPress 1 for Report 3");
+            int userChoice;
+
+                userChoice = Convert.ToInt32(Console.ReadLine());
+                if (userChoice == 1)
+                {
+                    Exercise1();
+                }
+                else if (userChoice == 2)
+                {
+                    Exercise2();
+                }
+                else if (userChoice == 3)
+                {
+                    Exercise3();
+                }
+                else
+                {
+                    PullAReport();
+                }
+                Console.ReadLine();
+                Console.WriteLine("Press any key to proceed. \nPress y start over."); 
+           
+        }
+
         static void Exercise1()
         {
             List<Order> orders = new List<Order>
@@ -86,18 +113,17 @@ namespace JoiningDataOOP
                 new Order("Julie’s Morning Diner", "Credit Card Reader", 45, 1),
             };
 
-            var distinctOrders = orders.GroupBy(o => o.CustomerName).Select(o => o.First());
-
+            var ordersGrouped = orders.GroupBy(o => o.CustomerName).Select(o => o.First());
 
             Console.WriteLine(string.Format("{0, -25}{1, -20}{2, -20}{3, -20}{4, 0}", "Customer", "Item", "Price", "Quantity", "Total"));
-            foreach (Order name in distinctOrders)
+            foreach (Order groupByName in ordersGrouped)
             {
-                Console.Write(string.Format("{0, -25}", name.CustomerName));
+                Console.Write(string.Format("{0, -25}", groupByName.CustomerName));
                 for (int i = 0; i < orders.Count; i++)
                 {
-                    if (name.CustomerName == orders[i].CustomerName)
+                    if (groupByName.CustomerName == orders[i].CustomerName)
                     {
-                        if (i == 1 || i == 4)
+                        if (i == 1 || i == 4) // This will check for empty spaces when the duplicate is taking care of.
                         {
                             string addSpace = string.Format("{0, -25}", "");
                             Console.WriteLine(string.Format("{0, 0}{1, -20}{2, -20}{3, -20}{4, 0}", addSpace, orders[i].Item, orders[i].Price, orders[i].Quantity, orders[i].Price * orders[i].Quantity));
@@ -106,10 +132,9 @@ namespace JoiningDataOOP
                         {
                             Console.WriteLine(string.Format("{0, 0}{1, -20}{2, -20}{3, -20}{4, 0}", "", orders[i].Item, orders[i].Price, orders[i].Quantity, orders[i].Price * orders[i].Quantity));
                         }
-                        //Console.WriteLine(string.Format("{0, 0}{1, -20}{2, -20}{3, -20}{4, 0}", $"{i}. ", orders[i].Item, orders[i].Price, orders[i].Quantity, orders[i].Price * orders[i].Quantity));
                     }
                 }
             }
-        } // Done 
+        }
     }
 }
