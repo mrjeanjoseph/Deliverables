@@ -8,35 +8,8 @@ namespace JoiningDataOOP
     {
         static void Main(string[] args)
         {
-            Exercise3();
+            Exercies4();
             Console.ReadLine();
-        }
-
-        static void PullAReport()
-        {
-            Console.WriteLine("Choose a report: \nPress 1 for Report 1\nPress 1 for Report 2\nPress 1 for Report 3");
-            int userChoice;
-
-                userChoice = Convert.ToInt32(Console.ReadLine());
-                if (userChoice == 1)
-                {
-                    Exercise1();
-                }
-                else if (userChoice == 2)
-                {
-                    Exercise2();
-                }
-                else if (userChoice == 3)
-                {
-                    Exercise3();
-                }
-                else
-                {
-                    PullAReport();
-                }
-                Console.ReadLine();
-                Console.WriteLine("Press any key to proceed. \nPress y start over."); 
-           
         }
 
         static void Exercise1()
@@ -135,6 +108,58 @@ namespace JoiningDataOOP
                     }
                 }
             }
+        }
+
+        static void Exercies4()
+        {
+            List<Order> orders = new List<Order>
+            {
+                new Order("Acme Hardware", "Mouse", 25, 3),
+                new Order("Acme Hardware", "Keyboard", 45, 2),
+                new Order("Falls Realty", "Macbook", 800, 2),
+                new Order("Joe’s Chicago Pizza", "", 0, 0),
+                new Order("Julie’s Morning Diner", "iPad", 525, 1),
+                new Order("Julie’s Morning Diner", "Credit Card Reader", 45, 1),
+            };
+
+            var distinctOrders = orders.GroupBy(o => o.CustomerName).Select(o => o.First());
+
+
+            foreach (Order name in distinctOrders)
+            {
+                Console.WriteLine(name.CustomerName);
+
+                if (name.Item == "")
+                {
+                    Console.WriteLine(string.Format("\t{0, -20} {1, -20} {2, -20} {3, 0}", "**No Orders**", "", "", ""));
+                    
+                }
+                else
+                {
+                    Console.WriteLine(string.Format("\t{0, -20} {1, -20} {2, -20} {3, 0}", "Item", "Price", "Quantity", "Total"));
+                    
+                }
+                for (int i = 0; i < orders.Count; i++)
+                {
+                    if (name.CustomerName == orders[i].CustomerName)
+                    {
+                        if (name.Item == "")
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine(orders[i].ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        static void TableHeader()
+        {
+            const int tableWidth = 90;
+            Console.WriteLine(new string('_', tableWidth));
         }
     }
 }

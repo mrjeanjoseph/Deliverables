@@ -40,6 +40,13 @@ namespace JoiningDataOOP
             this._quantity = quantity;
         }
 
+        public Order()
+        {
+            this._item = "";
+            this._price = 0;
+            this._quantity = 0;
+        }
+
         public override string ToString()
         {
             decimal total = this._price * this._quantity;
