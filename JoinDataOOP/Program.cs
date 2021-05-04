@@ -8,8 +8,35 @@ namespace JoiningDataOOP
     {
         static void Main(string[] args)
         {
-            Exercies4();
+            Exercise1();
             Console.ReadLine();
+        }
+
+        static void Exercise()
+        {
+            List<Order> orders = new List<Order>
+            {
+                new Order("Acme Hardware", "Mouse", 25, 3),
+                new Order("Acme Hardware", "Keyboard", 45, 2),
+                new Order("Falls Realty", "Macbook", 800, 2),
+                new Order("Julie’s Morning Diner", "iPad", 525, 1),
+                new Order("Julie’s Morning Diner", "Credit Card Reader", 45, 1),
+            };
+
+            List<string> isolatedName = new List<string>(); // Maybe
+
+            for (int i = 0; i < isolatedName.Count; i++)
+            {
+                Console.WriteLine(isolatedName[i]);
+                Console.WriteLine(string.Format("\t{0, -20} {1, -20} {2, 0}{3,10}", "Item", "Price", "Quantity", "Total"));
+                for (int j = 0; j < orders.Count; j++)
+                {
+                    if (orders[j].CustomerName == isolatedName[i])
+                    {
+                        Console.WriteLine("\t{0, -21} {1, -20} {2, 0}{3,15} ", orders[j].Item, orders[j].Price, orders[j].Quantity, orders[j].Price * orders[j].Quantity);
+                    }
+                }
+            }
         }
 
         static void Exercise1()
@@ -110,7 +137,7 @@ namespace JoiningDataOOP
             }
         }
 
-        static void Exercies4()
+        static void Exercise4()
         {
             List<Order> orders = new List<Order>
             {
