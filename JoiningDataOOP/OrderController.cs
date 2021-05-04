@@ -14,25 +14,30 @@ namespace JoiningDataOOP
 
         public static void ChooseAReport()
         {
-            Console.WriteLine("Choose between 1 and 4 to view a report");
-            bool runReport = true;
-            while (runReport)
+            Console.WriteLine("To view a report, choose between 1 -4: ");
+            int userChoose = int.Parse(Console.ReadLine());
+            if (userChoose <= 0 || userChoose >= 5)
             {
-                int userChooseReport = int.Parse(Console.ReadLine());
-                if (userChooseReport >= 1 && userChooseReport <=4 )
+                Console.WriteLine("You have made an invalid choice, please try again");
+            }
+            else
+            {
+                if (userChoose == 1)
                 {
-                    
+                    Exercise1();
                 }
-                else if (userChooseReport.ToString() == "")
+                else if (userChoose == 2)
                 {
-                    Console.WriteLine("Feild cannot be empty. \nPlease choose between 1 - 4");
+                    Exercise2();
+                }
+                else if (userChoose == 3)
+                {
+                    Exercise3();
                 }
                 else
                 {
-                    Console.WriteLine("Please choose between 1 - 4");
-                    ChooseAReport();
+                    Exercise4();
                 }
-                Console.WriteLine("I made it here");
             }
         }
 
