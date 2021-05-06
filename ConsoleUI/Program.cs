@@ -65,38 +65,32 @@ namespace ConsoleUI
 
             //6. Count all the even numbers
             int evenNums = nums.Count(e => e % 2 == 0);
-            Console.WriteLine($"\n\nEven Numbers: {evenNums}\n");
+            Console.WriteLine($"\n\nEven numbers count: {evenNums}\n");
         }
         static void StudentCollections(List<Student> allStudents)
         {
             //1. Find all students age of 21 and over (aka US drinking age)
             List<Student> drinkingAge = allStudents.Where(da => da.Age >= 21).ToList();
-            Console.WriteLine("These students can drink");
+            Console.WriteLine("These students can drink:");
             foreach (Student da in drinkingAge)
             {
-                Console.WriteLine(da.Name);
+                Console.WriteLine($"\t{ da.Name }");
 
             }
 
             //2. Find the oldest student
             var oldestSutdent = allStudents.OrderByDescending(stud => stud.Age).ToList();
-            Console.WriteLine($"\n{ oldestSutdent[0].Name } is oldest at { oldestSutdent[0].Age }");
-
-            // This option only print their age
-            //int oldestSutdent = allStudents.Max(os => os.Age);
-            //Console.WriteLine($"The oldest student is {oldestSutdent }");
+            Console.WriteLine($"\n{ oldestSutdent[0].Name } is the oldest at { oldestSutdent[0].Age }");
 
             //3. Find the youngest student
             var youngestSutdent = allStudents.OrderBy(stud => stud.Age).ToList();
-            Console.WriteLine($"\n{ youngestSutdent[0].Name } is Youngest at { youngestSutdent[0].Age }");
-
-            // This option only print age
-            //int youngestSutdent = allStudents.Min(os => os.Age);
-            //Console.WriteLine($"The youngest student is {youngestSutdent}");
+            Console.WriteLine($"\n{ youngestSutdent[0].Name } is the youngest at { youngestSutdent[0].Age }");
 
             //4. Find the oldest student under the age of 25
-            var oldestUnder25 = allStudents.Where(stud => stud.Age <= 25).ToList();
-            Console.WriteLine($"\n{ oldestUnder25[0].Name } is oldest under 25 at { oldestUnder25[0].Age }."); // there's an error here / use the querie
+            var oldestUnder25 = from stud in allStudents.OrderByDescending(stud => stud.Age)
+                                where stud.Age <= 25
+                                select stud.Name;
+            Console.WriteLine($"\n{ oldestUnder25.FirstOrDefault() } is oldest student under 25.");
 
             //5. Find all students over 21 and with even ages
             Console.WriteLine("\nThese students are over 21 with even ages:");
@@ -120,7 +114,7 @@ namespace ConsoleUI
                 Console.WriteLine($"\t{ ta.Name } is { ta.Age } years old");
             }
 
-            //7. Find all students whose name starts with a vowel. - INCOMPLETE
+            //7. Find all students whose name starts with a vowel.
             Console.WriteLine("\nAll students whose name starts with a vowel:");
             var vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
             var startsWithVowels = (from swv in allStudents
@@ -133,9 +127,8 @@ namespace ConsoleUI
             //List<Student> startsWithVowels = allStudents.Where(swv => swv.Name.ToLower().StartsWith('a')).ToList();
             foreach (Student studs in startsWithVowels)
             {
-                Console.WriteLine(studs.Name);
+                Console.WriteLine($"{ studs.Name }");
             }
-            Console.WriteLine("I am here");
         }
     }
 }
