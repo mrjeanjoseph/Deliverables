@@ -18,6 +18,7 @@ namespace ConsoleUI
                 new Student("Phillip", 16),
                 new Student("Maria", 63),
                 new Student("Abe", 33),
+                new Student("Obe", 33),
                 new Student("Curtis", 10)
             };
 
@@ -70,7 +71,6 @@ namespace ConsoleUI
         {
             //1. Find all students age of 21 and over (aka US drinking age)
             List<Student> drinkingAge = allStudents.Where(da => da.Age >= 21).ToList();
-
             Console.WriteLine("These students can drink");
             foreach (Student da in drinkingAge)
             {
@@ -99,14 +99,43 @@ namespace ConsoleUI
             Console.WriteLine($"\n{ oldestUnder25[0].Name } is oldest under 25 at { oldestUnder25[0].Age }."); // there's an error here / use the querie
 
             //5. Find all students over 21 and with even ages
-            List<Student> studentsOver21 = allStudents.Where(over21 => over21.Age >= 21).ToList();
-            Console.WriteLine("\nThese students are over 21");
-            foreach (Student over21 in studentsOver21)
+            Console.WriteLine("\nThese students are over 21 with even ages:");
+            List<Student> Over21AndEvenAges = (from over21 in allStudents
+                                                           where over21.Age >= 21
+                                                           && over21.Age % 2 == 0
+                                                           select over21).ToList();
+            foreach (Student over21 in Over21AndEvenAges)
             {
-                Console.WriteLine(over21.Name);
+                Console.WriteLine($"\t{ over21.Name } is { over21.Age } years old");
             }
 
             //6. Find all teenage students (13 to 19 inclusive)
+            Console.WriteLine("\nThese are teenage students:");
+            List<Student> teenAgers = (from ta in allStudents
+                                               where ta.Age >= 13
+                                               && ta.Age <= 19
+                                               select ta).ToList();
+            foreach (Student ta in teenAgers)
+            {
+                Console.WriteLine($"\t{ ta.Name } is { ta.Age } years old");
+            }
+
+            //7. Find all students whose name starts with a vowel. - INCOMPLETE
+            Console.WriteLine("\nAll students whose name starts with a vowel:");
+            var vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
+            var startsWithVowels = (from swv in allStudents
+                                    where swv.Name.ToLower().StartsWith('a')
+                                    || swv.Name.ToLower().StartsWith('e')
+                                    || swv.Name.ToLower().StartsWith('i')
+                                    || swv.Name.ToLower().StartsWith('o')
+                                    || swv.Name.ToLower().StartsWith('u')
+                                    select swv);
+            //List<Student> startsWithVowels = allStudents.Where(swv => swv.Name.ToLower().StartsWith('a')).ToList();
+            foreach (Student studs in startsWithVowels)
+            {
+                Console.WriteLine(studs.Name);
+            }
+            Console.WriteLine("I am here");
         }
     }
 }

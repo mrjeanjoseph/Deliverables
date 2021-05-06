@@ -5,7 +5,6 @@ D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\bin\Debug\net
 D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\bin\Debug\net5.0\ConsoleUI.dll
 D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\bin\Debug\net5.0\ref\ConsoleUI.dll
 D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\bin\Debug\net5.0\ConsoleUI.pdb
-D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csprojAssemblyReference.cache
 D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\obj\Debug\net5.0\ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
 D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfoInputs.cache
 D:\Source\workspace - 2021\GC BootCamp\2 - Labs\LINQ_Lab\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfo.cs
