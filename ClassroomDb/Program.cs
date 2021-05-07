@@ -11,52 +11,76 @@ namespace ClassroomDb
             //CreateDb();
             DisplayAllDB();
             DisplayStudentDB();
-                
-            
+            Console.WriteLine("Thank you for using out application");
+            Console.ReadLine();
         }
-
-        static bool IsNum(string num)
-        {
-            return int.TryParse(num, out _); // Returns true if is a number
-        }
-        static string UserPrompt(string userPrompt)
-        {
-            bool reRun = true; // Rerun the program if empty string
-            Console.WriteLine(userPrompt);
-            string userInput = "";
-            while (reRun)
-            {
-                userInput = Console.ReadLine();
-                if (userInput == "")
-                {
-                    Console.WriteLine($"You did not enter anything. \nPlease enter a value");
-                    reRun = true;
-                }
-                else
-                {
-                    break; // Break away from the while loop
-                }
-            }
-            return userInput.Trim().ToString();
-        }
-
 
         private static void DisplayStudentDB()
         {
             using (var context = new ClassroomDbContext())
             {
-
-                if (context.Students.Count() == 0)
+                int StudsCount = context.Students.Count();
+                if (StudsCount == 0)
                 {
-                    Console.WriteLine("Database is empty. Please add new data");
+                    Console.WriteLine("Database is empty. Please add new data.\nPress any key to continue");
                     Environment.Exit(0);
                 }
 
-                var sts = context.Students.Where(s => s.StudentId == id).ToList();
+                Console.WriteLine($"Welcome to our C# class. Which student would you like to learn more about? (enter a number 1 - {StudsCount + 1})");
+                int idProvided = InputValidation.IntIsValidated();
 
+                //Storing the values here
+                string studentName = "";
+                string hometown = "";
+                string faveFood = "";
+
+                var sts = context.Students.Where(s => s.StudentId == idProvided).ToList();
                 foreach (var data in sts)
                 {
-                    Console.WriteLine($"{ data.Name } is from { data.Hometown }. Her/His favorite food is { data.Food }");
+                    //Console.WriteLine($"{ data.Name } is from { data.Hometown }. Her/His favorite food is { data.Food }");
+                    studentName = data.Name;
+                    hometown = data.Hometown;
+                    faveFood = data.Food;
+                }
+                string choose = @"(Enter “Hometown” or “Favorite food”)";
+                Console.WriteLine($"Student { idProvided } is { studentName }. What would you like to know about { studentName }. \n{choose}");
+
+                while (true)
+                {
+                    string learnMore = Console.ReadLine().Trim().ToLower();
+                    if (learnMore == "hometown")
+                    {
+                        Console.WriteLine($"{ studentName } is from { hometown }.");
+                        Console.WriteLine($"Do you want to know more about { studentName }");
+                        if (learnMore == "y")
+                        {
+                            Console.WriteLine($"{ studentName }'s favorite food is { faveFood }");
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+                    else if (learnMore == "food" || learnMore == "Favorite food")
+                    {
+                        Console.WriteLine($"{ studentName }'s favorite food is { faveFood }");
+                        Console.WriteLine($"Do you want to know more about { studentName }");
+                        if (learnMore == "y")
+                        {
+                            Console.WriteLine($"{ studentName } is from { hometown }.");
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"You made an invalid selection. {choose}");
+                    }
                 }
             }
         }
@@ -72,7 +96,6 @@ namespace ClassroomDb
                 }
             }
         }
-
         static void CreateDb()
         {
             using (var context = new ClassroomDbContext())
@@ -138,6 +161,87 @@ namespace ClassroomDb
                 context.Students.Add(st4);
                 context.SaveChanges();
             }
+        }
+    }
+
+    class InputValidation
+    {
+        static bool IsNum(string num)
+        {
+            return int.TryParse(num, out _); // Returns true if is a number
+        }
+        static string stringValidated()
+        {
+            string str;
+            while (true)
+            {
+                str = Console.ReadLine();
+                if (str == "y")
+                {
+                    Console.Clear();
+                    break;
+                }
+                else if (str == "n")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please choose y/n:");
+                }
+            }
+            return str;
+        }
+        public static int IntIsValidated()
+        {
+            using (var context = new ClassroomDbContext())
+            {
+                int num;
+                int StudsCount = context.Students.Count() + 1;
+                string message = $"Choose a number between 1 and {StudsCount + 1}";
+                int count = 0;
+                while (true)
+                {
+                    try
+                    {
+                        num = int.Parse(Console.ReadLine());
+                        if (num < 1)
+                        {
+                            count++;
+                            throw new Exception($"Value entered is less than 1. \n{ message }.");
+                        }
+                        else if (num > StudsCount)
+                        {
+                            count++;
+                            throw new Exception($"That student does not exist. \n{ message }.");
+                        }
+                        else
+                        {
+                            count++;
+                            break;
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        count++;
+                        Console.WriteLine("Invalid entry. \nPlease try again: ");
+                    }
+                    catch (Exception error)
+                    {
+                        count++;
+                        Console.WriteLine(error.Message);
+                    }
+                }
+                //ConsoleCleared(count);
+                return num;
+            }
+        }
+
+        public static void ConsoleCleared(int count)
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - count); // Look into how many lines can cleared
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.CursorTop - count);
         }
     }
 }
