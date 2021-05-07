@@ -2,7 +2,7 @@
 
 namespace ClassroomDb.Migrations
 {
-    public partial class CreateSchool : Migration
+    public partial class ClassroomDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

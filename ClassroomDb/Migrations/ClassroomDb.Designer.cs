@@ -10,7 +10,7 @@ namespace ClassroomDb.Migrations
 {
     [DbContext(typeof(ClassroomDbContext))]
     [Migration("20210506194038_CreateSchool")]
-    partial class CreateSchool
+    partial class ClassroomDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
