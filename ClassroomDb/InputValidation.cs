@@ -5,10 +5,9 @@ namespace ClassroomDb
 {
     class InputValidation
     {
-        static bool IsNum(string num)
-        {
-            return int.TryParse(num, out _);
-        }
+        protected static int origRow;
+        protected static int origCol;
+
         public static string YesNoChoice()
         {
             string choice;
@@ -68,12 +67,19 @@ namespace ClassroomDb
                 return num;
             }
         }
-
-        public static void ConsoleCleared(int val)
+        public static void WriteAt(string s, int x, int y)
         {
-            Console.SetCursorPosition(0, Console.CursorTop - val); // Look into how many lines can cleared
-            Console.Write(new string(' ', Console.WindowWidth));
-            Console.SetCursorPosition(0, Console.CursorTop - val);
+
+            try
+            {
+                Console.SetCursorPosition(origCol + x, origRow + y);
+                Console.Write(s);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

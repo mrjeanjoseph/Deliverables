@@ -13,6 +13,7 @@ namespace ClassroomDb
             {
                 DisplayAllDB();
                 DisplayStudentDB();
+
                 Console.WriteLine("Would you like to learn about another student? (y/n)");
                 string userChoise = InputValidation.YesNoChoice();
                 if (userChoise != "y")
@@ -24,7 +25,7 @@ namespace ClassroomDb
             Console.ReadLine();
         } 
 
-        private static void DisplayStudentDB()
+        static void DisplayStudentDB()
         {
             using (var context = new ClassroomDbContext())
             {
@@ -39,7 +40,8 @@ namespace ClassroomDb
                     }
                 }
 
-                Console.WriteLine($"Welcome to our C# class. Which student would you like to learn more about? (enter a number 1 - {StudsCount + 1})");
+                InputValidation.WriteAt($"Welcome to our C# class. Which student would you like to learn more about? (enter a number 1 - {StudsCount + 1})", 0, 10);
+
                 int idProvided = InputValidation.IntIsValidated();
 
                 //Storing the values here
@@ -65,7 +67,6 @@ namespace ClassroomDb
                     if (learnMore == "hometown")
                     {
                         Console.WriteLine($"{ studentName } is from { hometown }.");
-                        System.Threading.Thread.Sleep(3000);
                         Console.WriteLine($"Do you want to know more about { studentName }. (y/n)");
                         learnMore = InputValidation.YesNoChoice();
                         if (learnMore == "y")
@@ -78,7 +79,6 @@ namespace ClassroomDb
                     else if (learnMore == "food" || learnMore == "Favorite food")
                     {
                         Console.WriteLine($"{ studentName }'s favorite food is { faveFood }");
-                        System.Threading.Thread.Sleep(3000);
                         Console.ReadLine();
                         Console.WriteLine($"Do you want to know more about { studentName }. (y/n)");
                         learnMore = InputValidation.YesNoChoice();
