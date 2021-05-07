@@ -7,29 +7,51 @@ namespace ClassroomDb
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("YOUR INFO:");
+            Console.WriteLine("Welcome to classroom database");
             //CreateDb();
             DisplayAllDB();
             DisplayStudentDB();
-
-            Console.ReadLine();
+                
+            
         }
+
+        static bool IsNum(string num)
+        {
+            return int.TryParse(num, out _); // Returns true if is a number
+        }
+        static string UserPrompt(string userPrompt)
+        {
+            bool reRun = true; // Rerun the program if empty string
+            Console.WriteLine(userPrompt);
+            string userInput = "";
+            while (reRun)
+            {
+                userInput = Console.ReadLine();
+                if (userInput == "")
+                {
+                    Console.WriteLine($"You did not enter anything. \nPlease enter a value");
+                    reRun = true;
+                }
+                else
+                {
+                    break; // Break away from the while loop
+                }
+            }
+            return userInput.Trim().ToString();
+        }
+
 
         private static void DisplayStudentDB()
         {
             using (var context = new ClassroomDbContext())
             {
+
                 if (context.Students.Count() == 0)
                 {
-                    Console.WriteLine("Empty");
+                    Console.WriteLine("Database is empty. Please add new data");
+                    Environment.Exit(0);
                 }
-                Console.WriteLine("Search for an Id");
-                int id = int.Parse(Console.ReadLine());
-                //Student s = new Student
-                //{
-                //    StudentId = id
-                //};
+
                 var sts = context.Students.Where(s => s.StudentId == id).ToList();
 
                 foreach (var data in sts)
@@ -38,7 +60,6 @@ namespace ClassroomDb
                 }
             }
         }
-
         static void DisplayAllDB()
         {
             using (var context = new ClassroomDbContext())
