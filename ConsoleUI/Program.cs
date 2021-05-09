@@ -9,8 +9,8 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //PopulateMovies();
-            //DisplayMenu();
-            WriteAt("Welcome to our movie selection", 0, 9);
+            
+            DisplayMenu();
             MovieSelection();
             Console.ReadLine();
         }
@@ -19,7 +19,7 @@ namespace ConsoleUI
         {
             while (true)
             {
-                Console.WriteLine("Choose an option: Search by 'Title' or 'Genre'");
+                WriteAt("Choose an option: Search by 'Title' or 'Genre'", 0, 11);
                 string userChoose = Console.ReadLine().ToLower().Trim();                
                 if (userChoose == "title")
                 {
@@ -54,12 +54,12 @@ namespace ConsoleUI
         {
             using (var context = new MovieDBContext())
             {
+                WriteAt("Welcome to our movie selection", 10, 1);
                 Console.WriteLine(string.Format("{0,-25}{1,-15}{2,-15}", "Title", "Genre", "Runtime"));
                 foreach (var movieList in context.Movies)
                 {
                     string result = string.Format("{0,-25}{1,-15}{2,-15}",movieList.Title , movieList.Genre , movieList.Runtime);
                     Console.WriteLine(result);
-                    //Console.WriteLine($"{ movieList.Title }\t{ movieList.Genre }\t{ movieList.Runtime}");
                 }
             };
         }
@@ -132,7 +132,7 @@ namespace ConsoleUI
             }
             catch (ArgumentOutOfRangeException e)
             {
-                Console.Clear();
+                Console.Clear(); // why console clear has to be there - I don't want it
                 Console.WriteLine(e.Message);
             }
         }
