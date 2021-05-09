@@ -10,46 +10,65 @@ namespace ConsoleUI
         {
             //PopulateMovies();
             DisplayMenu();
+            WriteAt("Welcome to our movie selection", 0, 9);
             MovieSelection();
             Console.ReadLine();
         }
 
         static void MovieSelection()
         {
-            Console.WriteLine("Choose an option: Search by 'Title' or 'Genre'");
-            string userChoose = Console.ReadLine();
-            Console.WriteLine("Searching for a movie by title: ");
-            Console.WriteLine("Enter the name of the movie you like to see");
-            if (userChoose == "title")
+            while (true)
             {
-                string userInput = Console.ReadLine();
-                List<string> list = SearchByTitle(userInput);
-                foreach (string item in list)
+                Console.WriteLine("Choose an option: Search by 'Title' or 'Genre'");
+                string userChoose = Console.ReadLine().ToLower().Trim();
+                Console.WriteLine("Searching for a movie by title: ");
+                Console.WriteLine("Enter the name of the movie you like to see");
+                
+                if (userChoose == "title")
                 {
-                    Console.WriteLine(item);
+                    string userInput = Console.ReadLine();
+                    List<string> list = SearchByTitle(userInput);
+                    foreach (string item in list)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    break;
                 }
-                Console.ReadLine();
-            }
-
+                else if (userChoose == "genre")
+                {
+                    string userInput = Console.ReadLine();
+                    List<string> list = SearchByGenre(userInput);
+                    foreach (string item in list)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("that was an invalid input. Try again");
+                } 
+            }            
         }
 
         static void DisplayMenu()
         {
             using (var context = new MovieDBContext())
             {
+                Console.WriteLine(string.Format("{0,-25}{1,-15}{2,-15}", "Title", "Genre", "Runtime"));
                 foreach (var movieList in context.Movies)
                 {
-                    Console.WriteLine($"{ movieList.Title }\t{ movieList.Genre }\t{ movieList.Runtime}");
+                    string result = string.Format("{0,-25}{1,-15}{2,-15}",movieList.Title , movieList.Genre , movieList.Runtime);
+                    Console.WriteLine(result);
+                    //Console.WriteLine($"{ movieList.Title }\t{ movieList.Genre }\t{ movieList.Runtime}");
                 }
             };
         }
 
-        static List<string> SearchByGenre()
+        static List<string> SearchByGenre(string userInput)
         {
-            Console.WriteLine("Search for a movie by genre: ");
             using (var context = new MovieDBContext())
             {
-                string userInput = Console.ReadLine();
                 var movie = context.Movies.Where(m => m.Genre == userInput).ToList();
 
                 List<string> result = new List<string>();
@@ -95,6 +114,23 @@ namespace ConsoleUI
                     context.SaveChanges();
                 }
             };
+        }
+
+        protected static int origRow;
+        protected static int origCol;
+
+        public static void WriteAt(string s, int x, int y)
+        {
+            try
+            {
+                Console.SetCursorPosition(origCol + x, origRow + y);                 
+                Console.WriteLine(s);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
