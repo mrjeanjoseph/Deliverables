@@ -20,12 +20,10 @@ namespace ConsoleUI
             while (true)
             {
                 Console.WriteLine("Choose an option: Search by 'Title' or 'Genre'");
-                string userChoose = Console.ReadLine().ToLower().Trim();
-                Console.WriteLine("Searching for a movie by title: ");
-                Console.WriteLine("Enter the name of the movie you like to see");
-                
+                string userChoose = Console.ReadLine().ToLower().Trim();                
                 if (userChoose == "title")
                 {
+                    Console.WriteLine("Searching for a movie by title: ");
                     string userInput = Console.ReadLine();
                     List<string> list = SearchByTitle(userInput);
                     foreach (string item in list)
@@ -36,6 +34,7 @@ namespace ConsoleUI
                 }
                 else if (userChoose == "genre")
                 {
+                    Console.WriteLine("Searching for a movie by genre: ");
                     string userInput = Console.ReadLine();
                     List<string> list = SearchByGenre(userInput);
                     foreach (string item in list)
@@ -82,7 +81,7 @@ namespace ConsoleUI
 
         static List<string> SearchByTitle(string userInput)
         {
-
+            Console.WriteLine("Searching for a movie by title: ");
             using (var context = new MovieDBContext())
             {
 
