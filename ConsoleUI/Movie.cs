@@ -11,5 +11,14 @@ namespace ConsoleUI
         public string Title { get; set; }
         public string Genre { get; set; }
         public double? Runtime { get; set; }
+
+        public Movie() { }
+
+        public Movie(string title, string genre, double runtime)
+        {
+            this.Title = title;
+            this.Genre = genre;
+            this.Runtime = runtime;
+        }  
     }
 }
