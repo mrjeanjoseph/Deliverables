@@ -8,13 +8,32 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            DisplayMenu();
+            Console.ReadLine();
+        }
+
+        static void MovieSelection()
+        {
             //PopulateMovies();
-            List<string> list = SearchByTitle();
+            Console.WriteLine("Search for a movie by title: ");
+            string userInput = Console.ReadLine();
+            List<string> list = SearchByTitle(userInput);
             foreach (string item in list)
             {
-                Console.WriteLine(item); 
+                Console.WriteLine(item);
             }
             Console.ReadLine();
+        }
+
+        static void DisplayMenu()
+        {
+            using (var context = new MovieDBContext())
+            {
+                foreach (var movieList in context.Movies)
+                {
+                    Console.WriteLine($"{ movieList.Title }\t{ movieList.Genre }\t{ movieList.Runtime}");
+                }
+            };
         }
 
         static List<string> SearchByGenre()
@@ -34,18 +53,18 @@ namespace ConsoleUI
             };
         }
 
-        static List<string> SearchByTitle()
+        static List<string> SearchByTitle(string userInput)
         {
-            Console.WriteLine("Search for a movie by title: ");
+            
             using (var context = new MovieDBContext())
             {
-                string userInput = Console.ReadLine();
+                
                 var movie = context.Movies.Where(m => m.Title == userInput).ToList();
 
                 List<string> result = new List<string>();
                 foreach (var movies in movie)
                 {
-                    result.Add($"{ movies.Title }\t{ movies.Title }");
+                    result.Add($"{ movies.Title }\t{ movies.Genre }");
                 }
                 return result;
             };
