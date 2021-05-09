@@ -8,21 +8,29 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            //PopulateMovies();
             DisplayMenu();
+            MovieSelection();
             Console.ReadLine();
         }
 
         static void MovieSelection()
         {
-            //PopulateMovies();
-            Console.WriteLine("Search for a movie by title: ");
-            string userInput = Console.ReadLine();
-            List<string> list = SearchByTitle(userInput);
-            foreach (string item in list)
+            Console.WriteLine("Choose an option: Search by 'Title' or 'Genre'");
+            string userChoose = Console.ReadLine();
+            Console.WriteLine("Searching for a movie by title: ");
+            Console.WriteLine("Enter the name of the movie you like to see");
+            if (userChoose == "title")
             {
-                Console.WriteLine(item);
+                string userInput = Console.ReadLine();
+                List<string> list = SearchByTitle(userInput);
+                foreach (string item in list)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.ReadLine();
             }
-            Console.ReadLine();
+
         }
 
         static void DisplayMenu()
@@ -55,10 +63,10 @@ namespace ConsoleUI
 
         static List<string> SearchByTitle(string userInput)
         {
-            
+
             using (var context = new MovieDBContext())
             {
-                
+
                 var movie = context.Movies.Where(m => m.Title == userInput).ToList();
 
                 List<string> result = new List<string>();
@@ -74,9 +82,10 @@ namespace ConsoleUI
         {
             using (var context = new MovieDBContext())
             {
+                //Creating the constructor enabled the option to create multiple new movies at once.
                 List<Movie> movieList = new List<Movie>()
                 {
-                    new Movie("Chucky", "Horror", 100.3), 
+                    new Movie("Chucky", "Horror", 100.3),
                     new Movie("Star Wars", "Scifi", 153.15),
                 };
                 foreach (Movie m in movieList)
