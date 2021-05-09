@@ -9,7 +9,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //PopulateMovies();
-            DisplayMenu();
+            //DisplayMenu();
             WriteAt("Welcome to our movie selection", 0, 9);
             MovieSelection();
             Console.ReadLine();
@@ -66,14 +66,17 @@ namespace ConsoleUI
 
         static List<string> SearchByGenre(string userInput)
         {
+            Console.WriteLine($"Here are a list of { userInput } movies.\nPlease wait...,");
             using (var context = new MovieDBContext())
             {
                 var movie = context.Movies.Where(m => m.Genre == userInput).ToList();
 
                 List<string> result = new List<string>();
+                Console.WriteLine(string.Format("\t{0,-25}{1,-25}", "Title", "Runtime"));
                 foreach (var movies in movie)
                 {
-                    result.Add($"{ movies.Title }\t{ movies.Genre }");
+                    string formattedResult = string.Format("\t{0,-25}{1,-25}", movies.Title, movies.Runtime);
+                    result.Add(formattedResult);
                 }
                 return result;
             };
@@ -81,16 +84,18 @@ namespace ConsoleUI
 
         static List<string> SearchByTitle(string userInput)
         {
-            Console.WriteLine("Searching for a movie by title: ");
+            Console.WriteLine("Here is your movie. Enjoy! ");
             using (var context = new MovieDBContext())
             {
 
                 var movie = context.Movies.Where(m => m.Title == userInput).ToList();
 
                 List<string> result = new List<string>();
+                Console.WriteLine(string.Format("\t{0,-25}{1,-15}{2,-15}", "Title", "Genre", "Runtime"));
                 foreach (var movies in movie)
                 {
-                    result.Add($"{ movies.Title }\t{ movies.Genre }");
+                    string formattedResult = string.Format("\t{0,-25}{1,-15}{2,-15}", movies.Title, movies.Genre, movies.Runtime);
+                    result.Add(formattedResult);
                 }
                 return result;
             };
