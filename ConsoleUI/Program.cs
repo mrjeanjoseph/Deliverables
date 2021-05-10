@@ -8,9 +8,10 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //PopulateMovies();
 
-            DisplayMenu();
+            //PopulateMovies();
+            WriteAt("Welcome to our movie selection", 10, 1);
+
             MovieSelection();
             Console.ReadLine();
         }
@@ -23,7 +24,12 @@ namespace ConsoleUI
                 string userChoose = Console.ReadLine().ToLower().Trim();                
                 if (userChoose == "title")
                 {
-                    Console.WriteLine("Searching for a movie by title: ");
+                    Console.WriteLine($"Here's a list of movies by { userChoose } ");
+                    Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "ID", "Title", "Genre", "Runtime"));
+                    Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "--", "-----", "-----", "-------"));
+                    DisplayMenu(userChoose);
+
+                    Console.WriteLine("what movies would you like to view?");
                     string userInput = Console.ReadLine();
                     List<string> list = SearchByTitle(userInput);
                     foreach (string item in list)
@@ -34,7 +40,13 @@ namespace ConsoleUI
                 }
                 else if (userChoose == "genre")
                 {
-                    Console.WriteLine("Searching for a movie by genre: ");
+                    Console.Clear();
+                    Console.WriteLine($"Here's a list of movies by { userChoose }: ");
+                    Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "ID", "Title", "Genre", "Runtime"));
+                    Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "--", "-----", "-----", "-------"));
+                    DisplayMenu(userChoose);
+
+                    Console.WriteLine("What genre of movies would you like to search for? ");
                     string userInput = Console.ReadLine();
                     List<string> list = SearchByGenre(userInput);
                     foreach (string item in list)
@@ -50,25 +62,34 @@ namespace ConsoleUI
             }            
         }
 
-        static void DisplayMenu()
+        static void DisplayMenu(string choice)
         {
             using (var context = new MovieDBContext())
             {
-                WriteAt("Welcome to our movie selection", 10, 1);
-                Console.WriteLine(string.Format("{0,-25}{1,-15}{2,-15}", "Title", "Genre", "Runtime"));
+                
+
                 int count = 0;
                 foreach (var movieList in context.Movies)
                 {
                     count++;
-                    string result = string.Format("{0,-25}{1,-15}{2,-15}",movieList.Title , movieList.Genre , movieList.Runtime);
-                    Console.WriteLine(result);
+                    if (choice == "title")
+                    {
+                        string result = string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", movieList.Id, movieList.Title, movieList.Genre, movieList.Runtime);
+                        Console.WriteLine(result); 
+                    }
+                    else if (choice == "genre")
+                    {
+                        string result = string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", movieList.Id, movieList.Genre, movieList.Title, movieList.Runtime);
+                        Console.WriteLine(result);
+                    }
                 }
-                WriteAt("", 0, count + 4);
+                //WriteAt("", 0, count + 4);
             };
         }
 
         static List<string> SearchByGenre(string userInput)
         {
+            
             Console.WriteLine($"Here are a list of { userInput } movies.\nPlease wait...,");
             using (var context = new MovieDBContext())
             {
@@ -111,8 +132,12 @@ namespace ConsoleUI
                 //Creating the constructor enabled the option to create multiple new movies at once.
                 List<Movie> movieList = new List<Movie>()
                 {
-                    new Movie("Chucky", "Horror", 100.3),
-                    new Movie("Star Wars", "Scifi", 153.15),
+                    new Movie("Men in Tights", "Comedy", 143.9),
+                    new Movie("Olympus Has Fallen", "Action", 141.8),
+                    new Movie("Law of Abiding Citizen", "Action", 163.15),
+                    new Movie("Blood and Bone", "Action", 128.15),
+                    new Movie("Hangover", "Comedy", 153.15),
+                    new Movie("Bruno", "Comedy", 153.15),
                 };
                 foreach (Movie m in movieList)
                 {
