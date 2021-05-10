@@ -9,7 +9,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //PopulateMovies();
-            
+
             DisplayMenu();
             MovieSelection();
             Console.ReadLine();
@@ -19,7 +19,7 @@ namespace ConsoleUI
         {
             while (true)
             {
-                WriteAt("Choose an option: Search by 'Title' or 'Genre'", 0, 11);
+                Console.WriteLine("Choose an option: Search by 'Title' or 'Genre'");
                 string userChoose = Console.ReadLine().ToLower().Trim();                
                 if (userChoose == "title")
                 {
@@ -56,11 +56,14 @@ namespace ConsoleUI
             {
                 WriteAt("Welcome to our movie selection", 10, 1);
                 Console.WriteLine(string.Format("{0,-25}{1,-15}{2,-15}", "Title", "Genre", "Runtime"));
+                int count = 0;
                 foreach (var movieList in context.Movies)
                 {
+                    count++;
                     string result = string.Format("{0,-25}{1,-15}{2,-15}",movieList.Title , movieList.Genre , movieList.Runtime);
                     Console.WriteLine(result);
                 }
+                WriteAt("", 0, count + 4);
             };
         }
 
