@@ -8,23 +8,33 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            bool RunProgramAgain = true;
+            while (RunProgramAgain)
+            {
+                Console.Clear();
+                //PopulateMovies();
+                WriteAt("WELCOME TO GRANT CHIRPUS MOVIE SELECTION!", 10, 1);
+                MovieSelection();
 
-            //PopulateMovies();
-            WriteAt("Welcome to our movie selection", 10, 1);
-
-            MovieSelection();
-            Console.ReadLine();
+                Console.WriteLine("Would you like to search for another movie");
+                string userchoose = Validation.YesNoChoice();
+                if (userchoose != "y")
+                {
+                    break;
+                }
+            }
         }
 
         static void MovieSelection()
         {
             while (true)
             {
-                Console.WriteLine("Choose an option: Search by 'Title' or 'Genre'");
-                string userChoose = Console.ReadLine().ToLower().Trim();                
+                WriteAt("You can search by 'Title' or 'Genre'", 13, 2);
+                string userChoose = Console.ReadLine().ToLower().Trim();
                 if (userChoose == "title")
                 {
-                    Console.WriteLine($"Here's a list of movies by { userChoose } ");
+                    Console.Clear();
+                    WriteAt($"Here's a list of movies by { userChoose } ", 10, 1);
                     Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "ID", "Title", "Genre", "Runtime"));
                     Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "--", "-----", "-----", "-------"));
                     DisplayMenu(userChoose);
@@ -41,9 +51,9 @@ namespace ConsoleUI
                 else if (userChoose == "genre")
                 {
                     Console.Clear();
-                    Console.WriteLine($"Here's a list of movies by { userChoose }: ");
-                    Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "ID", "Title", "Genre", "Runtime"));
-                    Console.WriteLine(string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", "--", "-----", "-----", "-------"));
+                    WriteAt($"Here's a list of movies by { userChoose }: ", 10, 1);
+                    Console.WriteLine(string.Format("{0,-5}{1,-15}{2,-25}{3, -15}", "ID", "Genre", "Title", "Runtime"));
+                    Console.WriteLine(string.Format("{0,-5}{1,-15}{2,-25}{3, -15}", "--", "-----", "-----", "-------"));
                     DisplayMenu(userChoose);
 
                     Console.WriteLine("What genre of movies would you like to search for? ");
@@ -58,47 +68,49 @@ namespace ConsoleUI
                 else
                 {
                     Console.WriteLine("that was an invalid input. Try again");
-                } 
-            }            
+                }
+            }
         }
 
         static void DisplayMenu(string choice)
         {
             using (var context = new MovieDBContext())
             {
-                
-
-                int count = 0;
+                int count = 4;
                 foreach (var movieList in context.Movies)
                 {
                     count++;
                     if (choice == "title")
                     {
                         string result = string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", movieList.Id, movieList.Title, movieList.Genre, movieList.Runtime);
-                        Console.WriteLine(result); 
+                        Console.WriteLine(result);
                     }
                     else if (choice == "genre")
                     {
-                        string result = string.Format("{0,-5}{1,-25}{2,-15}{3, -15}", movieList.Id, movieList.Genre, movieList.Title, movieList.Runtime);
+                        string result = string.Format("{0,-5}{1,-15}{2,-25}{3, -15}", movieList.Id, movieList.Genre, movieList.Title, movieList.Runtime);
                         Console.WriteLine(result);
                     }
                 }
-                //WriteAt("", 0, count + 4);
+                WriteAt("", 0, count + 4);
             };
         }
 
         static List<string> SearchByGenre(string userInput)
         {
-            
-            Console.WriteLine($"Here are a list of { userInput } movies.\nPlease wait...,");
+
             using (var context = new MovieDBContext())
             {
+                Console.WriteLine($"Here are a list of { userInput } movies.\nPlease wait...,");
                 var movie = context.Movies.Where(m => m.Genre == userInput).ToList();
 
                 List<string> result = new List<string>();
                 Console.WriteLine(string.Format("\t{0,-25}{1,-25}", "Title", "Runtime"));
                 foreach (var movies in movie)
                 {
+                    if (movies.Genre == "")
+                    {
+                        Console.WriteLine("I made it here");
+                    }
                     string formattedResult = string.Format("\t{0,-25}{1,-25}", movies.Title, movies.Runtime);
                     result.Add(formattedResult);
                 }
@@ -155,7 +167,7 @@ namespace ConsoleUI
         {
             try
             {
-                Console.SetCursorPosition(origCol + x, origRow + y);                 
+                Console.SetCursorPosition(origCol + x, origRow + y);
                 Console.WriteLine(s);
             }
             catch (ArgumentOutOfRangeException e)
@@ -163,6 +175,31 @@ namespace ConsoleUI
                 Console.Clear(); // why console clear has to be there - I don't want it
                 Console.WriteLine(e.Message);
             }
+        }
+    }
+
+    public class Validation
+    {
+        public static string YesNoChoice()
+        {
+            string choice;
+            while (true)
+            {
+                choice = Console.ReadLine().Trim().ToLower(); ;
+                if (choice == "y")
+                {
+                    break;
+                }
+                else if (choice == "n")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please choose y/n:");
+                }
+            }
+            return choice;
         }
     }
 }
