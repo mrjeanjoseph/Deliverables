@@ -31,12 +31,14 @@ namespace CoffeeShop.Controllers
         {
             return View();
         }
+
         public IActionResult Summary(CustomerModel customer)
         {
             ViewData["firstName"] = customer.FirstName;
             ViewData["lastName"] = customer.LastName;
             ViewData["emailAddress"] = customer.EmailAddress;
             ViewData["password"] = customer.Password;
+            
             return View();
         }
 
