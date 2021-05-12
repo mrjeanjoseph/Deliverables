@@ -4,25 +4,38 @@
 @{
 }
 
-<form method="post" asp-action="Summary">
-    <div class="form-group mb-2">
-        <div>
-            <label for="firstName">First Name</label>
-            <input class="form-control" type="text" name="FirstName" id="firstName" placeholder="Enter first name" />
+<form method="post" asp-action="SaveCustomers" asp-controller="Home">
+    <div class="row justify-content-center">
+        <div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+            <div class="card-header">Welcome to Grand Chirpus Coffee Shop</div>
+            <div class="card-body">
+                <h4 class="card-title">Complete the form below to get your coffee.</h4>
+                <div class="form-group">
+                    <div>
+                        <label for="firstName">First Name</label>
+                        <input class="form-control" type="text" name="FirstName" id="firstName" placeholder="Enter first name" required />
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control" type="text" name="LastName" id="lastName" placeholder="Enter last name" required />
+                    </div>
+                    <div>
+                        <label for="emailAddress">Email Address</label>
+                        <input class="form-control" type="email" name="EmailAddress" id="emailAddress" placeholder="Enter email" />
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input class="form-control" type="password" name="Password" id="password" placeholder="Enter password" pattern="^.*(?=.{6,})(?=.*[a-zA-Z])[a-zA-Z0-9]+$" />
+                    </div>
+                    <hr />
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><br />
+                    </div>
+                    <input type="submit" name="FirstName" class="btn btn-primary" />
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="lastName">Last Name</label>
-            <input class="form-control" type="text" name="LastName" id="lastName" placeholder="Enter last name" />
-        </div>
-        <div>
-            <label for="emailAddress">Email Address</label>
-            <input class="form-control" type="email" name="EmailAddress" id="emailAddress" placeholder="Enter email" />
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input class="form-control" type="password" name="Password" id="password" placeholder="Enter password" />
-        </div>
-        <hr />
-        <input type="submit" name="FirstName" class="btn btn-primary" />
     </div>
+
+    
 </form>

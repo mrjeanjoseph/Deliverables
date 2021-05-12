@@ -32,15 +32,37 @@ namespace CoffeeShop.Controllers
             return View();
         }
 
-        public IActionResult Summary(CustomerModel customer)
+        public IActionResult Summary()
         {
-            ViewData["firstName"] = customer.FirstName;
-            ViewData["lastName"] = customer.LastName;
-            ViewData["emailAddress"] = customer.EmailAddress;
-            ViewData["password"] = customer.Password;
-            
-            return View();
+            List<CustomerModel> customer = new List<CustomerModel>();
+            using (var context = new StoreContext())
+            {
+                customer = context.Customer.ToList();
+            }
+            return View(customer);
         }
+
+        public IActionResult SaveCustomers(CustomerModel info)
+        {
+            using (var context = new StoreContext())
+            {
+                context.Customer.Add(info);
+                context.SaveChanges();
+            }
+            return Redirect("Summary");
+        }
+
+        //public IActionResult Summary(CustomerModel info) // this one works
+        //{
+        //    List<CustomerModel> customer = null;
+        //    using (var context = new StoreContext())
+        //    {
+        //        context.Customer.Add(info);
+        //        context.SaveChanges();
+        //        customer = context.Customer.ToList();
+        //    }
+        //    return View(customer);
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
