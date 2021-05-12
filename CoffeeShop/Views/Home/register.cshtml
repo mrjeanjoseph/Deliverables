@@ -4,26 +4,25 @@
 @{
 }
 
-<form method="post" asp-action="">
-    <div>
+<form method="post" asp-action="Summary">
+    <div class="form-group mb-2">
         <div>
             <label for="firstName">First Name</label>
-            <input type="text" name="FirstName" id="firstName" />
+            <input class="form-control" type="text" name="FirstName" id="firstName" placeholder="Enter first name" />
         </div>
         <div>
             <label for="lastName">Last Name</label>
-            <input type="text" name="LastName" id="lastName" />
+            <input class="form-control" type="text" name="LastName" id="lastName" placeholder="Enter last name" />
         </div>
         <div>
             <label for="emailAddress">Email Address</label>
-            <input type="email" name="EmailAddress" id="emailAddress" />
+            <input class="form-control" type="email" name="EmailAddress" id="emailAddress" placeholder="Enter email" />
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="password" name="Password" id="password" />
+            <input class="form-control" type="password" name="Password" id="password" placeholder="Enter password" />
         </div>
-    </div>
-    <div>
-        <input type="submit" name="FirstName" class="btn btn-primary"/>
+        <hr />
+        <input type="submit" name="FirstName" class="btn btn-primary" />
     </div>
 </form>

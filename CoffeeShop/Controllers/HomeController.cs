@@ -27,14 +27,16 @@ namespace CoffeeShop.Controllers
         {
             return View();
         }
-        public IActionResult Register(CustomerModel customer)
+        public IActionResult Register()
         {
-            ViewData["CustomerModel"] = customer.FirstName;
             return View();
         }
-        public IActionResult Summary()
+        public IActionResult Summary(CustomerModel customer)
         {
-
+            ViewData["firstName"] = customer.FirstName;
+            ViewData["lastName"] = customer.LastName;
+            ViewData["emailAddress"] = customer.EmailAddress;
+            ViewData["password"] = customer.Password;
             return View();
         }
 
