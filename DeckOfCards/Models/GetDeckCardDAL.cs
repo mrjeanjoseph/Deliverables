@@ -10,7 +10,7 @@ namespace DeckOfCards.Models
 {
     public class GetDeckCardDAL
     {
-        public string CreateNewDeck()
+        public string GenerateNewDeck()
         {
             string url = @$"https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
 
@@ -22,12 +22,12 @@ namespace DeckOfCards.Models
 
             string JSON = reader.ReadToEnd();
 
-            return JSON;
+            return JSON; // This return need to be converted into an object
         }
 
         public string DrawCardsJson(string drawFive, string deckId)
         {
-
+            //Passing the cards to be retrieved and the id from above
             string url = $@"https://deckofcardsapi.com/api/deck/{deckId}/draw/?count={drawFive}";
             HttpWebRequest request = WebRequest.CreateHttp(url);
 
@@ -40,22 +40,22 @@ namespace DeckOfCards.Models
             return JSON; // getting raw json
         }
 
-        public CardDeckModel ConvertJsonCardDeckModel()
+        public ShuffleCardModel ConvertJsonNewDeck()
         {
-            string data = CreateNewDeck();
+            string data = GenerateNewDeck();
 
-            CardDeckModel cardDeckModel = JsonConvert.DeserializeObject<CardDeckModel>(data);
+            ShuffleCardModel deckGenerated = JsonConvert.DeserializeObject<ShuffleCardModel>(data);
 
-            return cardDeckModel;
+            return deckGenerated;
         }
 
-        public CardDeckModel ConvertDrawCardsJson(string drawFive, string deckId)
+        public DrawCardModel ConvertJsonDrawCard(string drawFive, string deckId)
         {
             string data = DrawCardsJson(drawFive, deckId);
 
-            CardDeckModel cardDraw = JsonConvert.DeserializeObject<CardDeckModel>(data);
+            DrawCardModel cardDrawn = JsonConvert.DeserializeObject<DrawCardModel>(data);
 
-            return cardDraw;
+            return cardDrawn;
         }
     }
 }

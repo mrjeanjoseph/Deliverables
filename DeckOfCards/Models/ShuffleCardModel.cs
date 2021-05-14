@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DeckOfCards.Models
 {
-    public class CardModel
+    public class ShuffleCardModel
     {
         public bool success { get; set; }
         public string deck_id { get; set; }
