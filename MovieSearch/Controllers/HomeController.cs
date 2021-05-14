@@ -13,6 +13,8 @@ namespace MovieSearch.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private readonly MovieDAL _movieDAL = new MovieDAL();
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -21,6 +23,28 @@ namespace MovieSearch.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult MovieSearch()
+        {
+            //Default method
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult MovieSearch(string title = "")
+        {
+            MovieModel movie = new MovieModel();
+            if (title != "")
+            {
+                movie = _movieDAL.ConvertMovieData(title);
+                return (IActionResult)movie;
+
+            }
+            else
+            {
+                return MovieSearch();
+            }
         }
 
         public IActionResult Privacy()
