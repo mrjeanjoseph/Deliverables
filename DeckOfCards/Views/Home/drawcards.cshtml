@@ -1,17 +1,21 @@
-﻿@model ShuffleCardModel
+﻿@model DrawCardModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
+ @*To get deck id. 
+<p>@Model.deck_id</p>*@
 
-<p>@Model.success</p>
+
+<form asp-action="drawcards">
+    <input type="submit" value="Draw New Cards" class="btn btn-primary"/><hr />
+</form>
 
 
-
-@*@for (int i = 0; i < Model.cards.Length; i++)
-{
-<p>@Model.cards[1].suit</p>
-<p>@Model.cards[1].value</p>
-}*@
+@for (int i = 0; i < Model.cards.Length; i++)
+{ 
+    <img src="@Model.cards[i].image"/>
+    <p>@Model.cards[i].suit</p>
+}

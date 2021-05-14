@@ -25,10 +25,11 @@ namespace DeckOfCards.Models
             return JSON; // This return need to be converted into an object
         }
 
-        public string DrawCardsJson(string drawFive, string deckId)
+        public string DrawCardsJson(string deckId, string drawFive) // the order of the parameters matter.
         {
             //Passing the cards to be retrieved and the id from above
             string url = $@"https://deckofcardsapi.com/api/deck/{deckId}/draw/?count={drawFive}";
+
             HttpWebRequest request = WebRequest.CreateHttp(url);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();

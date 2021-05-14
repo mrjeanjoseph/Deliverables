@@ -1,11 +1,7 @@
 ﻿using DeckOfCards.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DeckOfCards.Controllers
 {
@@ -21,7 +17,7 @@ namespace DeckOfCards.Controllers
 
         public IActionResult Index()
         {
-           return View();
+            return View();
         }
 
         public IActionResult Privacy()
@@ -31,11 +27,9 @@ namespace DeckOfCards.Controllers
 
         public IActionResult DrawCards()
         {
-            ShuffleCardModel cardDeckModel = _getDeck.ConvertJsonNewDeck();
-           //DrawCardModel drawcard = _getDeck.ConvertJsonDrawCard(cardDeckModel.deck_id, "5");
-            return View(cardDeckModel);
-
-
+            ShuffleCardModel getDeckId = _getDeck.ConvertJsonNewDeck();
+            DrawCardModel drawCards = _getDeck.ConvertJsonDrawCard(getDeckId.deck_id, "5");
+            return View(drawCards);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
