@@ -25,6 +25,7 @@ namespace MovieSearch.Controllers
             return View();
         }
 
+
         public IActionResult MovieSearch()
         {
             //Default method
@@ -32,19 +33,29 @@ namespace MovieSearch.Controllers
         }
 
         [HttpPost]
-        public IActionResult MovieSearch(string title = "")
+        public IActionResult MovieSearch(string Title = "")
         {
             MovieModel movie = new MovieModel();
-            if (title != "")
-            {
-                movie = _movieDAL.ConvertMovieData(title);
-                return (IActionResult)movie;
+            movie = _movieDAL.ConvertMovieData(Title);
+            return View(movie);
+        }
 
-            }
-            else
-            {
-                return MovieSearch();
-            }
+        public IActionResult MovieNight()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult MovieNight(string title1, string title2, string title3)
+        {
+            List<string> multipleTitles = new List<string>();
+            multipleTitles.Add(title1);
+            multipleTitles.Add(title2);
+            multipleTitles.Add(title3);
+            List<MovieModel> movies = _movieDAL.MovieList(multipleTitles);
+
+            return View(movies);
         }
 
         public IActionResult Privacy()
