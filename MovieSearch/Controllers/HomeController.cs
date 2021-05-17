@@ -53,7 +53,7 @@ namespace MovieSearch.Controllers
             multipleTitles.Add(title1);
             multipleTitles.Add(title2);
             multipleTitles.Add(title3);
-            List<MovieModel> movies = _movieDAL.MovieList(multipleTitles);
+            List<MovieModel> movies = _movieDAL.ConvertListOfMovieData(multipleTitles);
 
             return View(movies);
         }
