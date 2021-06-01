@@ -1,0 +1,21 @@
+﻿@model List<Message>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<h1>Message board!</h1>
+@foreach (Message m in Model)
+{
+    <div>@m.UserId - @m.Message1</div>
+}
+
+
+<h3>Enter a message</h3>
+<form method="post" asp-action="messageboard">
+    <input type="text" name="message" id="" placeholder="Type your message and press enter:" />
+    <button class="btn btn-primary">Submit</button>
+
+</form>
