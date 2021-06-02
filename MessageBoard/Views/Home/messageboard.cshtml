@@ -9,7 +9,18 @@
 <h1>Message board!</h1>
 @foreach (Message m in Model)
 {
-    <div>@m.UserId - @m.Message1</div>
+    if (m.UserId == User.Identity.Name)
+    {
+        <div>
+            @m.UserId
+            <textarea class="form-control" rows="3" disabled>
+                @m.Message1
+            
+                </textarea>
+            @m.PostedTime
+        </div>
+    }
+
 }
 
 
@@ -19,3 +30,4 @@
     <button class="btn btn-primary">Submit</button>
 
 </form>
+

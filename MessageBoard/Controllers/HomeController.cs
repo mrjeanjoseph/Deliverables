@@ -24,7 +24,8 @@ namespace MessageBoard.Controllers
             return View();
         }
 
-        
+
+        [Authorize]
         public IActionResult messageboard()
         {
             List<Message> listOfMessages = new List<Message>();
@@ -36,6 +37,7 @@ namespace MessageBoard.Controllers
             return View(listOfMessages);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult messageboard(string message)
         {
@@ -51,6 +53,19 @@ namespace MessageBoard.Controllers
                 context.SaveChanges();
             };
             return Redirect("messageboard");
+            //return View(message1); // 
+        }
+
+
+        [Authorize]
+        [HttpDelete]
+        public IActionResult messageboard(int userId)
+        {
+            using (MessageBoardDBContext context = new MessageBoardDBContext())
+            {
+                Message message = new Message();
+                return View(message);
+            };
             //return View(message1); // 
         }
 

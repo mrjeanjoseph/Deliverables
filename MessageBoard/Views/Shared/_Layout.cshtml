@@ -48,5 +48,15 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+<script>
+    window.setInterval('refresh()', 10000);
+    // Call a function every 10000 milliseconds
+    // (OR 10 seconds).
+
+    // Refresh or reload page.
+    function refresh() {
+        window.location.reload();
+    }
+</script>
 </body>
 </html>
