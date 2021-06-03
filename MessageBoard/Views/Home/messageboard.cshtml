@@ -21,6 +21,18 @@
         </div>
     }
 
+    @if (m.Updated == true)
+    {
+        <p>edited</p>
+    }
+
+
+
+    @if (User.Identity.Name == m.UserId)
+    {
+        <a asp-action="UpdateMessage" asp-route-userId="@m.Id">Edit</a>
+        <a asp-action="UpdateMessage" asp-route-userId="@m.Id">Delete</a>
+    }
 }
 
 

@@ -25,13 +25,15 @@ namespace MessageBoard.Controllers
         }
 
 
+
+
         [Authorize]
         public IActionResult messageboard()
         {
             List<Message> listOfMessages = new List<Message>();
             using (MessageBoardDBContext context = new MessageBoardDBContext())
             {
-                listOfMessages =  (context.Messages.ToList());
+                listOfMessages = (context.Messages.ToList());
             };
 
             return View(listOfMessages);
@@ -56,17 +58,50 @@ namespace MessageBoard.Controllers
             //return View(message1); // 
         }
 
-
         [Authorize]
-        [HttpDelete]
-        public IActionResult messageboard(int userId)
+        [HttpPost]
+        public IActionResult editmessage(int userId, string message) // This is for the edit page
+        {
+            Message message1 = new Message();
+            using (MessageBoardDBContext context = new MessageBoardDBContext())
+            {
+                message1 = context.Messages.ToList().Find(m => m.Id == userId);
+                message1.Message1 = message;
+                message1.Updated = true;
+                context.SaveChanges();
+            };
+            return Redirect("messageboard");
+            //return View(message1); // 
+        }
+
+        //[HttpPost] // 
+        public IActionResult UpdateMessage(int userId) // This is for the edit page
         {
             using (MessageBoardDBContext context = new MessageBoardDBContext())
             {
                 Message message = new Message();
+                message = context.Messages.ToList().Find(m => m.Id == userId);
+
                 return View(message);
             };
-            //return View(message1); // 
+        }
+
+
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult DeleteMessages(int userId, string message) // This will handle deleting a message when cliced on.
+        {
+            Message message1 = new Message();
+            using (MessageBoardDBContext context = new MessageBoardDBContext())
+            {
+                message1 = context.Messages.ToList().Find(m => m.Id == userId);
+                message1.Message1 = message;
+                context.Messages.Remove(message1);
+                context.SaveChanges();
+            };
+
+            return Redirect("messageboard");
         }
 
         public IActionResult Privacy()
