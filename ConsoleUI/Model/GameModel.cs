@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.Model
 {
-    class GameModel
+    public class GameModel
     {
         public void Start()
+        {
+
+        }
+        public void Quit()
         {
 
         }
