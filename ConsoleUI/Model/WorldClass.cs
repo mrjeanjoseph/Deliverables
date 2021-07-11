@@ -35,8 +35,14 @@ namespace ConsoleUI.Model
             }
         }
 
+        public string GetElementAt(int x, int y)
+        {
+            return Grid[y, x];
+        }
+
         public bool IsPositionWalkable(int x, int y)
         {
+
             //first check the bounds (We don't want out of bound)
             if (x < 0 || y < 0 || x >= Cols || y > Rows)
             {

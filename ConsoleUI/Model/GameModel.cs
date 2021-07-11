@@ -16,16 +16,16 @@ namespace ConsoleUI.Model
             string[,] grid =
             {
                 { "=", "=", "=", "=", "=", "=", "="},
-                { "=", " ", "=", " ", " ", " ", "X"},
+                { "=", " ", " ", " ", "=", " ", "X"},
                 { "O", " ", "=", " ", "=", " ", "="},
-                { "=", " ", "=", " ", "=", " ", "="},
+                { "=", " ", "=", " ", " ", " ", " "},
                 { " ", " ", " ", "=", "=", " ", "="},
                 { "=", "=", "=", "=", "=", "=", "="},
 
             };
             myWorld = new WorldClass(grid);
 
-            currentPlayer = new PlayerModel(0, 2);
+            currentPlayer = new PlayerModel(0, 1);
             RunGameLoop();
 
         }
@@ -46,6 +46,11 @@ namespace ConsoleUI.Model
 
                 //Check for player input from the keyboard and move the player
                 HandlePlayerInput();
+                string elementAtPlayerPos = myWorld.GetElementAt(currentPlayer.X, currentPlayer.Y);
+                if (elementAtPlayerPos == "X")
+                {
+                    break;
+                }
 
                 //Check if the player has reached the exit and end the game if so.
                 System.Threading.Thread.Sleep(20);
@@ -61,16 +66,29 @@ namespace ConsoleUI.Model
             switch (key)
             {
                 case ConsoleKey.UpArrow:
-                    currentPlayer.Y -= 1;
+                    if (myWorld.IsPositionWalkable(currentPlayer.X, currentPlayer.Y - 1))
+                    {
+                        currentPlayer.Y -= 1;
+                    }
                     break;
                 case ConsoleKey.DownArrow:
-                    currentPlayer.Y += 1;
+                    if (myWorld.IsPositionWalkable(currentPlayer.X, currentPlayer.Y + 1))
+                    {
+                        currentPlayer.Y += 1;
+                    }
+                    
                     break;
                 case ConsoleKey.LeftArrow:
-                    currentPlayer.X -= 1;
+                    if (myWorld.IsPositionWalkable(currentPlayer.X - 1, currentPlayer.Y))
+                    {
+                        currentPlayer.X -= 1;
+                    }                    
                     break;
                 case ConsoleKey.RightArrow:
-                    currentPlayer.X += 1;
+                    if (myWorld.IsPositionWalkable(currentPlayer.X + 1, currentPlayer.Y))
+                    {
+                        currentPlayer.X += 1;
+                    }                    
                     break;
                 default:
                     break;
