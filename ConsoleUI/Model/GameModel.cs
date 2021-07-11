@@ -94,8 +94,16 @@ namespace ConsoleUI.Model
 
         private void HandlePlayerInput()
         {
-            ConsoleKeyInfo keyInfo = ReadKey(true);
-            ConsoleKey key = keyInfo.Key;
+            // Get the most recent key input.
+            ConsoleKey key;
+
+            do
+            {
+                ConsoleKeyInfo keyInfo = ReadKey(true);
+                key = keyInfo.Key;
+
+            } while (KeyAvailable);
+
             switch (key)
             {
                 case ConsoleKey.UpArrow:
