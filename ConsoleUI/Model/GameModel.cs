@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using ConsoleUI.LevelParser;
 
 namespace ConsoleUI.Model
 {
-    public class GameModel
+    class GameModel
     {
         private WorldClass myWorld;
         private PlayerModel currentPlayer;
@@ -16,21 +17,23 @@ namespace ConsoleUI.Model
             Title = "Welcome to the Maze";
             CursorVisible = false;
 
-            string[,] grid =
-            {
+            string[,] grid = LevelParser.LevelParser.ParseFileToArray(@"LevelParser\Level1.txt");
 
-                { "█", " ", "█", " ", " ", " ", "X"},
-                { "█", " ", " ", " ", "█", " ", " "},
-                { "O", " ", "█", " ", "█", " ", "█"},
-                { "█", " ", "█", " ", " ", " ", " "},
-                { " ", " ", " ", "█", "█", " ", "█"},
-                { "█", "█", "█", "█", "█", "█", "█"},
-                { " ", " ", " ", "█", "█", " ", "█"},
+            //string[,] grid =
+            //{
 
-            };
+            //    { "█", " ", "█", " ", " ", " ", "X"},
+            //    { "█", " ", " ", " ", "█", " ", " "},
+            //    { "O", " ", "█", " ", "█", " ", "█"},
+            //    { "█", " ", "█", " ", " ", " ", " "},
+            //    { " ", " ", " ", "█", "█", " ", "█"},
+            //    { "█", "█", "█", "█", "█", "█", "█"},
+            //    { " ", " ", " ", "█", "█", " ", "█"},
+
+            //};
             myWorld = new WorldClass(grid);
 
-            currentPlayer = new PlayerModel(0, 2);
+            currentPlayer = new PlayerModel(1, 2);
             RunGameLoop();
 
         }
