@@ -30,6 +30,16 @@ namespace ConsoleUI.Model
                 {
                     string element = Grid[y, x];
                     SetCursorPosition(x, y);
+
+                    //This if statement change the x color to green and keep everything else to white
+                    if (element == "X")
+                    {
+                        ForegroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        ForegroundColor = ConsoleColor.White;
+                    }
                     Write(element);
                 }
             }

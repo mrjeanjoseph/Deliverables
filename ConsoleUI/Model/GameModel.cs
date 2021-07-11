@@ -13,10 +13,14 @@ namespace ConsoleUI.Model
         private PlayerModel currentPlayer;
         public void Start()
         {
+            Title = "Welcome to the Maze";
+            CursorVisible = false;
+
             string[,] grid =
             {
-                { "=", "=", "=", "=", "=", "=", "="},
-                { "=", " ", " ", " ", "=", " ", "X"},
+
+                { "=", " ", "=", " ", " ", " ", "X"},
+                { "=", " ", " ", " ", "=", " ", " "},
                 { "O", " ", "=", " ", "=", " ", "="},
                 { "=", " ", "=", " ", " ", " ", " "},
                 { " ", " ", " ", "=", "=", " ", "="},
@@ -30,6 +34,29 @@ namespace ConsoleUI.Model
 
         }
 
+        private void DisplayIntro()
+        {
+            WriteLine("Welcome to the Maze!");
+            WriteLine("\nInstructions");
+            WriteLine(">Use the arrow keys to move");
+            Write("> Try to reach the goal, which looks like this: ");
+            ForegroundColor = ConsoleColor.Green;
+            WriteLine("X");
+            ResetColor();
+            WriteLine("> Press any key to start");
+            ReadKey(true);
+        }
+
+        private void DisplayOutro()
+        {
+            Clear();
+            WriteLine("You escaped");
+            WriteLine("Thanks for playing");
+            WriteLine("Press any key to exit");
+            ReadKey(true);
+        }
+
+
         private void DrawFrame()
         {
             Clear();
@@ -39,6 +66,7 @@ namespace ConsoleUI.Model
 
         private void RunGameLoop()
         {
+            DisplayIntro();
             while (true)
             {
                 //Draw everything
@@ -53,10 +81,11 @@ namespace ConsoleUI.Model
                 }
 
                 //Check if the player has reached the exit and end the game if so.
-                System.Threading.Thread.Sleep(20);
 
                 //Give the console a chance to render.
+                System.Threading.Thread.Sleep(20);
             }
+            DisplayOutro();
         }
 
         private void HandlePlayerInput()
@@ -76,19 +105,19 @@ namespace ConsoleUI.Model
                     {
                         currentPlayer.Y += 1;
                     }
-                    
+
                     break;
                 case ConsoleKey.LeftArrow:
                     if (myWorld.IsPositionWalkable(currentPlayer.X - 1, currentPlayer.Y))
                     {
                         currentPlayer.X -= 1;
-                    }                    
+                    }
                     break;
                 case ConsoleKey.RightArrow:
                     if (myWorld.IsPositionWalkable(currentPlayer.X + 1, currentPlayer.Y))
                     {
                         currentPlayer.X += 1;
-                    }                    
+                    }
                     break;
                 default:
                     break;
