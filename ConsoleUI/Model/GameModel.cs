@@ -56,7 +56,25 @@ namespace ConsoleUI.Model
 
         private void HandlePlayerInput()
         {
-
+            ConsoleKeyInfo keyInfo = ReadKey(true);
+            ConsoleKey key = keyInfo.Key;
+            switch (key)
+            {
+                case ConsoleKey.UpArrow:
+                    currentPlayer.Y -= 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    currentPlayer.Y += 1;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    currentPlayer.X -= 1;
+                    break;
+                case ConsoleKey.RightArrow:
+                    currentPlayer.X += 1;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
