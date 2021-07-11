@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 using ConsoleUI.LevelParser;
+using Figgle;
+using Pastel;
 
 namespace ConsoleUI.Model
 {
@@ -40,12 +42,13 @@ namespace ConsoleUI.Model
 
         private void DisplayIntro()
         {
-            WriteLine("Welcome to the Maze!");
+            WriteLine(FiggleFonts.Larry3d.Render("This is"));
+            WriteLine(FiggleFonts.Larry3d.Render("The MAZE"));
+
             WriteLine("\nInstructions");
             WriteLine(">Use the arrow keys to move");
             Write("> Try to reach the goal, which looks like this: ");
-            ForegroundColor = ConsoleColor.Green;
-            WriteLine("X");
+            WriteLine("X".Pastel("#b3ffbf"));
             ResetColor();
             WriteLine("> Press any key to start");
             ReadKey(true);
