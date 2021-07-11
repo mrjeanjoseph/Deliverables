@@ -7,7 +7,6 @@ using static System.Console;
 
 namespace ConsoleUI.Model
 {
-    // now we have this class that wrap up all of the logic of creating our world
     class WorldClass
     {
         public string[,] Grid;
@@ -17,7 +16,7 @@ namespace ConsoleUI.Model
         public WorldClass(string[,] grid)
         {
             Grid = grid;
-            //calculate the number of rows and cols
+
             Rows = Grid.GetLength(0);
             Cols = Grid.GetLength(1);
 
@@ -31,7 +30,6 @@ namespace ConsoleUI.Model
                     string element = Grid[y, x];
                     SetCursorPosition(x, y);
 
-                    //This if statement change the x color to green and keep everything else to white
                     if (element == "X")
                     {
                         ForegroundColor = ConsoleColor.Green;
@@ -52,13 +50,10 @@ namespace ConsoleUI.Model
 
         public bool IsPositionWalkable(int x, int y)
         {
-
-            //first check the bounds (We don't want out of bound)
             if (x < 0 || y < 0 || x >= Cols || y > Rows)
             {
                 return false;
             }
-
             return Grid[y, x] == " " || Grid[y, x] == "X";
         }
     }

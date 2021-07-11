@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Console;
-using ConsoleUI.LevelParser;
-using Figgle;
+﻿using Figgle;
 using Pastel;
+using System;
+using static System.Console;
 
 namespace ConsoleUI.Model
 {
@@ -20,24 +15,10 @@ namespace ConsoleUI.Model
             CursorVisible = false;
 
             string[,] grid = LevelParser.LevelParser.ParseFileToArray(@"LevelParser\Level1.txt");
-
-            //string[,] grid =
-            //{
-
-            //    { "█", " ", "█", " ", " ", " ", "X"},
-            //    { "█", " ", " ", " ", "█", " ", " "},
-            //    { "O", " ", "█", " ", "█", " ", "█"},
-            //    { "█", " ", "█", " ", " ", " ", " "},
-            //    { " ", " ", " ", "█", "█", " ", "█"},
-            //    { "█", "█", "█", "█", "█", "█", "█"},
-            //    { " ", " ", " ", "█", "█", " ", "█"},
-
-            //};
             myWorld = new WorldClass(grid);
 
             currentPlayer = new PlayerModel(1, 2);
             RunGameLoop();
-
         }
 
         private void DisplayIntro()
@@ -76,28 +57,19 @@ namespace ConsoleUI.Model
             DisplayIntro();
             while (true)
             {
-                //Draw everything
                 DrawFrame();
-
-                //Check for player input from the keyboard and move the player
                 HandlePlayerInput();
                 string elementAtPlayerPos = myWorld.GetElementAt(currentPlayer.X, currentPlayer.Y);
                 if (elementAtPlayerPos == "X")
                 {
                     break;
                 }
-
-                //Check if the player has reached the exit and end the game if so.
-
-                //Give the console a chance to render.
-                System.Threading.Thread.Sleep(20);
             }
             DisplayOutro();
         }
 
         private void HandlePlayerInput()
         {
-            // Get the most recent key input.
             ConsoleKey key;
 
             do

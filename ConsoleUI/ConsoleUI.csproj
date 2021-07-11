@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="LevelParser\Level2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="LevelParser\Level1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
