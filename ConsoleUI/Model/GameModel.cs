@@ -21,21 +21,12 @@ namespace ConsoleUI.Model
                 { "=", "=", "=", "=", "=", "=", "="},
 
             };
-            int rows = grid.GetLength(0);
-            int cols = grid.GetLength(1);
+            WorldClass gameWorld = new WorldClass(grid);
+            gameWorld.Draw();
 
-            // y = row and x = col
-            for(int y = 0; y < rows; y++)
-            {
-                for(int x = 0; x < cols; x++)
-                {
-                    string element = grid[y, x];
-                    SetCursorPosition(x, y);
-                    Write(element);
-                }
-            }
-
-            //WriteLine("Press any key to exit");
+            WriteLine(gameWorld.IsPositionWalkable(0, 0));
+            WriteLine(gameWorld.IsPositionWalkable(1, 1));
+            WriteLine(gameWorld.IsPositionWalkable(6, 1));
 
         }
         public void Quit()
