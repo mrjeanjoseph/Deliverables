@@ -1,0 +1,16 @@
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\bin\Debug\net5.0\Lab4Exponents.exe
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\bin\Debug\net5.0\Lab4Exponents.deps.json
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\bin\Debug\net5.0\Lab4Exponents.runtimeconfig.json
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\bin\Debug\net5.0\Lab4Exponents.runtimeconfig.dev.json
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\bin\Debug\net5.0\Lab4Exponents.dll
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\bin\Debug\net5.0\ref\Lab4Exponents.dll
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\bin\Debug\net5.0\Lab4Exponents.pdb
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.csprojAssemblyReference.cache
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.AssemblyInfoInputs.cache
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.AssemblyInfo.cs
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.csproj.CoreCompileInputs.cache
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.dll
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\ref\Lab4Exponents.dll
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.pdb
+C:\Users\Computer\Desktop\Lectures&Labs\WeekOfApril05th\Lab4Exponents\obj\Debug\net5.0\Lab4Exponents.genruntimeconfig.cache
