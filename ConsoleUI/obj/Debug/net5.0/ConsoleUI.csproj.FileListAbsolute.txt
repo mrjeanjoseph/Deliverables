@@ -1,0 +1,16 @@
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\bin\Debug\net5.0\ConsoleUI.exe
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\bin\Debug\net5.0\ConsoleUI.deps.json
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\bin\Debug\net5.0\ConsoleUI.runtimeconfig.json
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\bin\Debug\net5.0\ConsoleUI.runtimeconfig.dev.json
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\bin\Debug\net5.0\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\bin\Debug\net5.0\ref\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\bin\Debug\net5.0\ConsoleUI.pdb
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfoInputs.cache
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfo.cs
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csproj.CoreCompileInputs.cache
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ref\ConsoleUI.dll
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.pdb
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.genruntimeconfig.cache
+D:\Source\workspace - 2021\GC BootCamp\1 - WeeklyLabs&Lecs\WeekOfApril12th - Labs\ShoppingList\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csprojAssemblyReference.cache
