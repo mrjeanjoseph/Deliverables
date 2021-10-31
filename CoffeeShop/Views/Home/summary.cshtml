@@ -1,0 +1,25 @@
+﻿@model List<CustomerModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*<div class="row gx-5">
+    <div class="col text-center" style="font-size: xx-large;">
+        <div class="p-3 border bg-dark">
+            Welcome to our coffee shop @ViewData["firstName"]
+        </div>
+    </div>
+</div>*@
+
+@foreach (CustomerModel cm in Model)
+            {
+                <div>
+                    <text>First Name - Last Name - Email Address</text>
+                    <ul>
+                        <li>@cm.FirstName @cm.LastName @cm.EmailAddress</li>                        
+                    </ul>
+                </div>
+            }
