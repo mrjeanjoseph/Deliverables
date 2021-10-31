@@ -1,0 +1,12 @@
+Coffee,Decaf,1.00,Normal
+Coffee,Latte,2.50,Nice and smooth
+Coffee,Cappucino,3.00, Light and airy
+Coffee,Espresso,5.50, On the go
+Coffee,Medium Roast,4.00, Simple and rustic
+Coffee,Mocha,3.50, Warm and gentle
+Tea,Bubble Tea,4.50,Happy Days
+Tea,Green Tea,3.50, Energy for Days
+Tea,Black Tea,3.00, Wide awake
+Tea,Ginger Tea,4.00, Tummy Love
+Tea,Sleepy Tea,5.50, Sweet Dreams
+Tea,Peppermint Tea,2.50, Tummy Care
