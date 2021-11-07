@@ -5,4 +5,18 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Figgle" Version="0.4.0" />
+    <PackageReference Include="Pastel" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LevelParser\Level2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="LevelParser\Level1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleUI.Model;
+using System;
 
 namespace ConsoleUI
 {
@@ -6,9 +7,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Learning GitHub Branching and merging");
-            Console.WriteLine("I am making changes over here");
-            Console.WriteLine("======================================");
+            GameModel currentGame = new GameModel();
+            currentGame.Start();
         }
     }
 }
