@@ -1,0 +1,31 @@
+﻿@model List<MovieModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@if (Model == null)
+{
+    <form method="post" asp-action="MovieNight">
+        <label for="Title1">Search by Title</label>
+        <input name="Title1" type="Text" id="Title1" required />
+
+        <label for="Title2">Search by Title</label>
+        <input name="Title2" type="Text" id="Title2" required />
+
+        <label for="Title3">Search by Title</label>
+        <input name="Title3" type="Text" id="Title3" required />
+
+        <input type="submit" />
+    </form>
+
+}
+else
+{
+    @foreach (MovieModel movie in Model)
+    {
+        <p>@movie.Title</p>
+        <img src="@movie.Poster" />
+    }
+}
